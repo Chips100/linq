@@ -51,6 +51,17 @@
 		return x < 3;
 	}).toArray(), [3,4,5], 'Simple skip while enumeration');
 
+	
+	tester.assert(myEnum.takeWhile(function(x) {
+		return x < 4;
+	}).toArray(), [1,2,3], 'Simple takewhile enumeration');
+	
+	
+	tester.assert(myEnum.takeWhile(function() {
+		return +this < 4;
+	}).toArray(), [1,2,3], 'takewhile enumeration with dependency injection');
+
+
 	tester.run();
 
 

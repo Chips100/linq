@@ -59,6 +59,11 @@ Enumerable.prototype.take = function(number) {
 	return new TakeEnumerable(this, number);
 };
 
+// takes elements from this enumerable as long as a specified condition is met.
+Enumerable.prototype.takeWhile = function(predicate) {
+	return new TakeWhileEnumerable(this, predicate);
+};
+
 // reduces this enumerable to those elements that meet the specified condition.
 Enumerable.prototype.where = function(predicate) {
 	return new WhereEnumerable(this, predicate);
