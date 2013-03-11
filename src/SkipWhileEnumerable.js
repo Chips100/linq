@@ -1,5 +1,5 @@
 function SkipWhileEnumerable(enumerable, predicate) {
-	this._enumerable = enumerable || new Enumerable([]);
+	this._enumerable = enumerable || new Enumerable();
 	this._predicate = predicate;
 }
 

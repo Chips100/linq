@@ -1,5 +1,5 @@
 function SelectEnumerable(enumerable, selector) {
-	this._enumerable = enumerable || new Enumerable([]);
+	this._enumerable = enumerable || new Enumerable();
 	this._selector = selector;
 }
 

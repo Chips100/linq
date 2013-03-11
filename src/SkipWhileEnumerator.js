@@ -7,6 +7,7 @@ function SkipWhileEnumerator(enumerable, predicate) {
 SkipWhileEnumerator.prototype.getCurrent = function() {
 	return this._enumerator.getCurrent();
 };
+
 SkipWhileEnumerator.prototype.moveNext = function() {
 	var current;
 	
@@ -27,6 +28,7 @@ SkipWhileEnumerator.prototype.moveNext = function() {
 		return this._enumerator.moveNext();
 	}
 };
+
 SkipWhileEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._hasSkippedFirstElements = false;

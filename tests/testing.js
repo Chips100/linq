@@ -1,3 +1,6 @@
+// VERY basic testing framework will be injected into current page
+// specialized for linq project, we can make assertions about equality of arrays.
+// will log failed assertions to the console.
 (function(global) {
 	global.Tester = Tester;
 	

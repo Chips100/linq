@@ -1,3 +1,4 @@
+// runs a series of tests for enumeration operations
 (function(global) {
 	
 	var tester = new Tester(),

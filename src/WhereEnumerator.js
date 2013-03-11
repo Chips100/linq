@@ -7,6 +7,7 @@ function WhereEnumerator(enumerable, predicate) {
 WhereEnumerator.prototype.getCurrent = function() {
 	return this._enumerator.getCurrent();
 };
+
 WhereEnumerator.prototype.moveNext = function() {
 	var current;
 	
@@ -19,6 +20,7 @@ WhereEnumerator.prototype.moveNext = function() {
 	
 	return false;
 };
+
 WhereEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._index = -1;

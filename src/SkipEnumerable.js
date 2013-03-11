@@ -1,5 +1,5 @@
 function SkipEnumerable(enumerable, number) {
-	this._enumerable = enumerable || new Enumerable([]);
+	this._enumerable = enumerable || new Enumerable();
 	this._number = number;
 }
 

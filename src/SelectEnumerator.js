@@ -9,10 +9,12 @@ SelectEnumerator.prototype.getCurrent = function() {
 	
 	return this._selector.call(current, current, this._index);
 };
+
 SelectEnumerator.prototype.moveNext = function() {
 	this._index++;
 	return this._enumerator.moveNext();
 };
+
 SelectEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._index = -1;
