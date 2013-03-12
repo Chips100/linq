@@ -14,6 +14,12 @@
 	tester.assert(enumerable.count(function(p) { return !p.vaccinated }), 2, 'Count method using a predicate.');
 
 
+	/* Tests for static Repeat Method */
+	enumerable = Enumerable.repeat('I like programming.', 5);
+	tester.assert(enumerable.toArray(), ['I like programming.','I like programming.','I like programming.','I like programming.','I like programming.'],
+		'Repeat method test.')
+
+
 
 	/* Tests for Select Method */
 	enumerable = new Enumerable([1,2,3,4,5,6,7,8,9,10])
@@ -25,6 +31,37 @@
 		.select(function(x, i) { return x.substring(0, i); });
 					
 	tester.assert(enumerable.toArray(), ['', 'b', 'ma', 'ora', 'pass', 'grape'], 'Select method using index of element.')
+
+
+
+	/* Tests for SelectMany Method */
+	enumerable = new Enumerable([
+		{ name: 'Higa, Sidney', pets: ['Scruffy', 'Sam'] },
+		{ name: 'Ashkenazi, Ronen', pets: new Enumerable(['Walker', 'Sugar'])}, //hier können arrays oder enumerables stehen.
+		{ name: 'Price, Vernette', pets: ['Scratches', 'Diesel'] }
+	]).selectMany(function(petOwner) { return petOwner.pets; });
+	tester.assert(enumerable.toArray(), ['Scruffy', 'Sam', 'Walker', 'Sugar', 'Scratches', 'Diesel'], 'SelectMany method test.');
+	
+	enumerable = new Enumerable([
+		{ name: 'Higa, Sidney', pets: ['Scruffy', 'Sam'] },
+		{ name: 'Ashkenazi, Ronen', pets: ['Walker', 'Sugar']},
+		{ name: 'Price, Vernette', pets: ['Scratches', 'Diesel'] },
+		{ name: 'Hines, Patrick', pets:['Dusty']}
+	]).selectMany(function(petOwner, index) {
+		for (var i = petOwner.pets.length - 1; i >= 0; i--) {
+			petOwner.pets[i] = index + petOwner.pets[i];
+		}
+		return petOwner.pets;
+	});
+	tester.assert(enumerable.toArray(), ['0Scruffy', '0Sam', '1Walker', '1Sugar', '2Scratches', '2Diesel', '3Dusty'], 'SelectMany method test using elements index.')
+
+	enumerable = new Enumerable([
+		{ name: 'Higa, Sidney', pets: ['Scruffy', 'Sam'] },
+		{ name: 'Ashkenazi, Ronen', pets: ['Walker', 'Sugar']},
+		{ name: 'Price, Vernette', pets: ['Scratches', 'Diesel'] },
+		{ name: 'Hines, Patrick', pets:['Dusty']}
+	]).selectMany(function(petOwner) { return petOwner.pets }, function(pet, petOwner) { return petOwner.pets.length + pet });
+	tester.assert(enumerable.toArray(), ['2Scruffy', '2Sam', '2Walker', '2Sugar', '2Scratches', '2Diesel', '1Dusty'], 'SelectMany method test with resultSelector.')
 
 
 

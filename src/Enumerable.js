@@ -10,6 +10,15 @@ Enumerable.prototype.getEnumerator = function() {
 };
 
 
+/* Static methods on Enumerable function object */
+
+// creates an enumerable that repeats a given element a specified number of times.
+Enumerable.repeat = function(element, count) {
+	return new RepeatEnumerable(element, count);
+}
+
+
+
 /* prototype methods that can be applied to all enumerables */
 
 // returns the number of elements in this enumerable.
@@ -46,6 +55,11 @@ Enumerable.prototype.toArray = function() {
 // applies a selector function to all elements in this enumerable.
 Enumerable.prototype.select = function(selector) {
 	return new SelectEnumerable(this, selector);
+};
+
+// applies a selector function to all elements in this enumerable and flattens the results.
+Enumerable.prototype.selectMany = function(collectionSelector, resultSelector) {
+	return new SelectManyEnumerable(this, collectionSelector, resultSelector);
 };
 
 // skips a specified number of elements this enumerable.
