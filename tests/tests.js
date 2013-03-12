@@ -4,6 +4,7 @@
 	var tester = new Tester(),
 		enumerable,
 		sentence,
+		comparer,
 		fruits = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
 
@@ -32,6 +33,18 @@
 	enumerable = new Enumerable([{ name: 'Barley', age: 10}, { name: 'Boots', age: 4}, { name: 'Whiskers', age: 6}]);
 	tester.assert(enumerable.all(function(pet) { return pet.name.indexOf('B') === 0; }), false, 'All Method Test.');
 	tester.assert(enumerable.all(function(pet) { return pet.age < 20; }), true, 'All Method Test.')
+
+
+	/* Tests for Contains Method */
+	enumerable = new Enumerable(fruits);
+	tester.assert(enumerable.contains('mango'), true, 'Contains Method test.');
+	
+	comparer = function(a,b) { return a.code === b.code && a.name === b.name;  };
+	enumerable = new Enumerable([{name: 'apple', code:9}, {name:'orange', code:4}, {name:'lemon', code:12}]);
+	tester.assert(enumerable.contains({name:'apple', code:9}, comparer), true, 'Contains Method test using custom comparer.');
+	tester.assert(enumerable.contains({name:'kiwi', code:8}, comparer), false, 'Contains Method test using custom comparer.');
+	tester.assert(enumerable.contains({name:'apple', code:9}), false, 'Contains Method test not using custom comparer.');
+
 
 
 	/* Tests for Count Method */

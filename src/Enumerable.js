@@ -71,6 +71,21 @@ Enumerable.prototype.all = function(predicate) {
 };
 
 
+// returns true if enumerable contains specified value, compared using the specified comparer
+Enumerable.prototype.contains = function(value, comparer) {
+	var enumerator = this.getEnumerator(),
+		current;
+	
+	while(enumerator.moveNext()) {
+		current = enumerator.getCurrent();
+		if ((comparer && comparer.call(current, current, value)) || current === value) {
+			return true;	
+		}
+	}
+	
+	return false;
+};
+
 
 // returns the number of elements in this enumerable.
 Enumerable.prototype.count = function(predicate) {
