@@ -12,12 +12,15 @@ Enumerable.prototype.getEnumerator = function() {
 /* prototype methods that can be applied to all enumerables */
 
 // returns the number of elements in this enumerable.
-Enumerable.prototype.count = function() {
+Enumerable.prototype.count = function(predicate) {
 	var counter = 0,
+		current,
 		enumerator = this.getEnumerator();
 		
 	while(enumerator.moveNext()) {
-		counter++;
+		if (!predicate || predicate.call(current = enumerator.getCurrent(), current)) {
+			counter++;
+		}
 	}
 	
 	return counter;

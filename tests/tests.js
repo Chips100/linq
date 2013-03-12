@@ -2,67 +2,83 @@
 (function(global) {
 	
 	var tester = new Tester(),
-		myEnum = new Enumerable([1,2,3,4,5,6,7,8,9,10]);
+		enumerable,
+		fruits = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
-	tester.assert(1, 1, 'Always passing test');
 
-	tester.assert(myEnum.toArray(), [1,2,3,4,5,6,7,8,9,10], 'Manipulation Free Enumeration.');
-	tester.assert(myEnum.count(), 10, 'Simple counting');
-	tester.assert(myEnum.skip(100).count(), 0, 'Chained counting');
-	tester.assert(myEnum.take(3).count(), 3, 'Another Chained counting');
-
-	tester.assert(myEnum.where(function(x) {
-		return x > 7;
-	}).toArray(), [8,9,10], 'Simple Where Enumeration.');
-
-	tester.assert(myEnum.where(function(x) {
-		return x > 7;
-	}).where(function(x) {
-		return x < 10;
-	}).toArray(), [8,9], 'Chained Where Enumeration.');
+	/* Tests for Count Method */
+	enumerable = new Enumerable(fruits);
+	tester.assert(enumerable.count(), 6, 'Count method test.')
 	
-	tester.assert(myEnum.where(function(x) {
-		return +this > 6; }).toArray(), [7,8,9,10], 'Where Enumeration with dependency injection feature.');
+	enumerable = new Enumerable([{name: 'Barley', vaccinated:true}, {name: 'Boots', vaccinated:false}, {name: 'Whiskers', vaccinated:false}]);
+	tester.assert(enumerable.count(function(p) { return !p.vaccinated }), 2, 'Count method using a predicate.');
 
 
-	tester.assert(myEnum.take(3).toArray(), [1,2,3], 'Simple take enumeration');
-	tester.assert(myEnum.take(5).toArray(), [1,2,3,4,5], 'Another simple take enumeration');
+
+	/* Tests for Select Method */
+	enumerable = new Enumerable([1,2,3,4,5,6,7,8,9,10])
+		.select(function(x) { return x*x; });
+							
+	tester.assert(enumerable.toArray(), [1,4,9,16,25,36,49,64,81,100], 'Select method calculating squares.')
 	
-	tester.assert(myEnum.where(function(x) { return x > 4; }).take(2).toArray(), [5,6], 'Chained take enumeration');
+	enumerable = new Enumerable(fruits)
+		.select(function(x, i) { return x.substring(0, i); });
+					
+	tester.assert(enumerable.toArray(), ['', 'b', 'ma', 'ora', 'pass', 'grape'], 'Select method using index of element.')
 
+
+
+	/* Tests for Skip Method */
+	enumerable = new Enumerable([98, 92, 85, 82, 70, 59, 56]).skip(3);
+	tester.assert(enumerable.toArray(), [82, 70, 59, 56], 'Skip method test.')
+
+
+
+	/* Tests for SkipWhile Method */
+	enumerable = new Enumerable([98, 92, 85, 82, 70, 59, 56])
+		.skipWhile(function(x) { return x >= 80; });
 	
-	tester.assert(myEnum.skip(3).toArray(), [4,5,6,7,8,9,10], 'Simple skip enumeration');
-	tester.assert(myEnum.skip(8).toArray(), [9,10], 'Another simple skip enumeration');
+	tester.assert(enumerable.toArray(), [70, 59, 56], 'SkipWhile method test.')
 	
-	tester.assert(myEnum.take(8).skip(1).take(20).skip(2).take(2).toArray(), [4,5], 'Complex chained skip enumeration');
-	tester.assert(myEnum.skip(100).toArray(), [], 'Skip enumeration skipping more elements than array has.');
-
-
-	tester.assert(myEnum.select(function(x) { return x+1; }).toArray(), [2,3,4,5,6,7,8,9,10,11], 'Simple Select enumeration');
-	tester.assert(myEnum.skip(4).take(2).select(function(x) { return 2*x; }).toArray(), [10, 12], 'Chained Select enumeration');
-
-
-
-
-	tester.assert(myEnum.skipWhile(function(x) {
-		return x < 3;
-	}).toArray(), [3,4,5,6,7,8,9,10], 'Simple skip while enumeration');
-	tester.assert(myEnum.take(5).skipWhile(function(x) {
-		return x < 3;
-	}).toArray(), [3,4,5], 'Simple skip while enumeration');
-
+	enumerable = new Enumerable([5000, 2500, 9000, 8000, 6500, 4000, 1500, 5500])
+		.skipWhile(function(x, i) { return x > i * 1000; });
 	
-	tester.assert(myEnum.takeWhile(function(x) {
-		return x < 4;
-	}).toArray(), [1,2,3], 'Simple takewhile enumeration');
+	tester.assert(enumerable.toArray(), [4000, 1500, 5500], 'SkipWhile method using index of element.')
+
+
+
+	/* Tests for Take Method */
+	enumerable = new Enumerable([98, 92, 85, 82, 70, 59, 56]).take(3);
+	tester.assert(enumerable.toArray(), [98, 92, 85], 'Take method test.');
 	
 	
-	tester.assert(myEnum.takeWhile(function() {
-		return +this < 4;
-	}).toArray(), [1,2,3], 'takewhile enumeration with dependency injection');
+	
+	/* Tests for TakeWhile Method */
+	enumerable = new Enumerable(fruits).takeWhile(function(x) { return x !== 'orange'; });
+	tester.assert(enumerable.toArray(), ['apple', 'banana', 'mango'], 'TakeWhile method test.')
+
+	enumerable = new Enumerable(['apple', 'passionfruit', 'banana', 'mango', 'orange', 'blueberry', 'grape', 'strawberry'])
+		.takeWhile(function(x, i) { return x.length >= i; });
+		
+	tester.assert(enumerable.toArray(), ['apple', 'passionfruit', 'banana', 'mango', 'orange', 'blueberry'], 'TakeWhile method using index of element.')
 
 
+
+	/* Tests for Where Method */
+	enumerable = new Enumerable(['apple', 'passionfruit', 'banana', 'mango', 'orange', 'blueberry', 'grape', 'strawberry'])
+		.where(function(x) { return x.length < 6; });
+		
+	tester.assert(enumerable.toArray(), ['apple', 'mango', 'grape'], 'Where method test.');
+	
+	enumerable = new Enumerable([0, 30, 20, 15, 90, 85, 40, 75])
+		.where(function(number, index) { return number <= index * 10; });
+		
+	tester.assert(enumerable.toArray(), [0, 20, 15, 40], 'Where method using index of element.')
+
+
+
+
+
+	// run the tests
 	tester.run();
-
-
 })(this);
