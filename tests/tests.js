@@ -3,7 +3,35 @@
 	
 	var tester = new Tester(),
 		enumerable,
+		sentence,
 		fruits = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
+
+
+	/* Tests for Aggregate Method */
+	sentence = 'the quick brown fox jumps over the lazy dog';
+	enumerable = new Enumerable(sentence.split(' '));
+	tester.assert(enumerable.aggregate(function(workingSentence, next) { return next + ' ' + workingSentence; }),
+		'dog lazy the over jumps fox brown quick the', 'Simple Aggregation Method Test.');
+	
+	enumerable = new Enumerable([4,8,8,3,9,0,7,8,2]);
+	tester.assert(enumerable.aggregate(0, function(total, next) {
+		return next % 2 === 0 ? total + 1 : total;
+	}), 6, 'Aggregation Method test with seed.')
+	
+	enumerable = new Enumerable(['apple', 'mango', 'orange', 'passionfruit', 'grape']);
+	tester.assert(enumerable
+		.aggregate('banana', function(longest, next) { 
+			return next.length > longest.length ? next : longest; 
+		}, function(fruit) { 
+			return fruit.toUpperCase(); 
+		}), 'PASSIONFRUIT', 'Aggregate Method Test');
+		
+ 
+	
+	/* Tests for All Method */
+	enumerable = new Enumerable([{ name: 'Barley', age: 10}, { name: 'Boots', age: 4}, { name: 'Whiskers', age: 6}]);
+	tester.assert(enumerable.all(function(pet) { return pet.name.indexOf('B') === 0; }), false, 'All Method Test.');
+	tester.assert(enumerable.all(function(pet) { return pet.age < 20; }), true, 'All Method Test.')
 
 
 	/* Tests for Count Method */

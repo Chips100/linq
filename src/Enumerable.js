@@ -21,6 +21,57 @@ Enumerable.repeat = function(element, count) {
 
 /* prototype methods that can be applied to all enumerables */
 
+
+Enumerable.prototype.aggregate = function(seed, func, resultSelector) {
+	var enumerator = this.getEnumerator(),
+		current,
+		aggregation;
+	
+	//check if seed parameter was actually omitted
+	if (typeof(seed) === 'function') {
+		if (typeof(func) === 'function') {
+			resultSelector = func;
+		}
+		
+		func = seed;
+		
+		enumerator.moveNext();
+		seed = enumerator.getCurrent();
+	}
+	
+	aggregation = seed;
+	while(enumerator.moveNext()) {
+		current = enumerator.getCurrent();
+		aggregation = func.call(current, aggregation, current);
+	}
+	
+	if (!resultSelector) {
+		return aggregation;
+	}
+	else {
+		return resultSelector.call(aggregation, aggregation);
+	}
+};
+
+
+
+// returns true if all elements meet a specified condition
+Enumerable.prototype.all = function(predicate) {
+	var enumerator = this.getEnumerator(),
+		current;
+	
+	while(enumerator.moveNext()) {
+		current = enumerator.getCurrent();
+		if (!predicate.call(current, current)) {
+			return false;
+		}
+	}
+	
+	return true;
+};
+
+
+
 // returns the number of elements in this enumerable.
 Enumerable.prototype.count = function(predicate) {
 	var counter = 0,
