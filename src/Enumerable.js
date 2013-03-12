@@ -3,6 +3,7 @@ function Enumerable(arr) {
 	this._array = arr || [];
 }
 
+
 //gets an enumerator by an initial array
 Enumerable.prototype.getEnumerator = function() {
 	return new Enumerator(this._array);
