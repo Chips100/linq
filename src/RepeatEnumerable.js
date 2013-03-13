@@ -1,4 +1,8 @@
 function RepeatEnumerable(element, count) {
+	if (isNaN(count) || +count < 0) {
+		throw new Error('invalid count parameter: ' + count);
+	}
+	
 	this._element = element;
 	this._count = count;
 }

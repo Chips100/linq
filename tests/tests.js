@@ -34,6 +34,11 @@
 	tester.assert(enumerable.all(function(pet) { return pet.name.indexOf('B') === 0; }), false, 'All Method Test.');
 	tester.assert(enumerable.all(function(pet) { return pet.age < 20; }), true, 'All Method Test.')
 
+	enumerable = new Enumerable([1,2,3]);
+	enumerable = enumerable.concat(new Enumerable([3,4,5]));
+	tester.assert(enumerable.toArray(), [1,2,3,3,4,5], 'Concat method test');
+
+
 
 	/* Tests for Contains Method */
 	enumerable = new Enumerable(fruits);
@@ -44,8 +49,6 @@
 	tester.assert(enumerable.contains({name:'apple', code:9}, comparer), true, 'Contains Method test using custom comparer.');
 	tester.assert(enumerable.contains({name:'kiwi', code:8}, comparer), false, 'Contains Method test using custom comparer.');
 	tester.assert(enumerable.contains({name:'apple', code:9}), false, 'Contains Method test not using custom comparer.');
-
-
 
 	/* Tests for Count Method */
 	enumerable = new Enumerable(fruits);
@@ -60,6 +63,12 @@
 	tester.assert(enumerable.toArray(), ['I like programming.','I like programming.','I like programming.','I like programming.','I like programming.'],
 		'Repeat method test.')
 
+	enumerable = Enumerable.range(-4, 6);
+	tester.assert(enumerable.toArray(), [-4, -3, -2, -1, 0, 1], 'Range method test.');
+
+
+	tester.assert(Enumerable.empty().toArray(), Enumerable.repeat('anything', 0).toArray(),
+		'Validation of Enumerable.empty and Enumerable.repeat with zero repititions')
 
 
 	/* Tests for Select Method */
