@@ -65,7 +65,7 @@ Enumerable.prototype.aggregate = function(seed, func, resultSelector) {
 
 // returns true if all elements meet a specified condition
 Enumerable.prototype.all = function(predicate) {
-	if (!predicate || !(typeof(predicate) !== 'function')) {
+	if (!predicate || typeof(predicate) !== 'function') {
 		throw new Error('invalid predicate parameter: ' + predicate);	
 	}
 	
