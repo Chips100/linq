@@ -1,4 +1,4 @@
-Used string representation of elements in distinct, union and intersect.
+Used string representation of elements in distinct, union, except and intersect.
 To have some kind of optimization by using faster lookups.
 
 Problem: What if a comparer is supplied, that makes two objects equal, although their string representations are not???

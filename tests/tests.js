@@ -210,6 +210,15 @@
 	enumerable = enumerable.intersect(new Enumerable([{name: 'apple', code:9}, {name:'lemon', code:12}]), comparer);
 	tester.assert(enumerable.select(function(x) { return x.code; }).toArray(), [9], 'Intersect method test using custom comparer');
 
+	enumerable = new Enumerable([2.0, 2.0, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5]).except(new Enumerable([2.2]));
+	tester.assert(enumerable.toArray(), [2.0, 2.1, 2.3, 2.4, 2.5], 'Except method test');
+
+
+	
+	enumerable = new Enumerable([{name: 'apple', code:9}, {name:'orange', code:4}, {name:'lemon', code:12}]);
+	enumerable = enumerable.except(new Enumerable([{name: 'apple', code:9}]), comparer);
+	tester.assert(enumerable.select(function(x) { return x.code; }).toArray(), [ 4 , 12], 'Except method test using custom comparer')
+
 	// run the tests
 	tester.run();
 })(this);
