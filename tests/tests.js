@@ -165,6 +165,42 @@
 
 
 
+	enumerable = new Enumerable([1,4,5]).aggregate(5, function(current, value) { 
+		return current * 2 + value; 
+		}, function(result) { return result.toString(); });
+	tester.assert(enumerable, '57', 'complex aggregate test');
+
+
+
+	enumerable = new Enumerable([21, 46, 46, 55, 17, 21, 55, 55]).distinct();
+	tester.assert(enumerable.toArray(), [21, 46, 55, 17], 'Distinct method test');
+	
+	
+	comparer = function(a, b) {
+		if (a === b) {
+			return true;
+		}
+		if (!a || !b) {
+			return false;
+		}
+		
+		return a.code === b.code && a.name === b.name;
+	}
+	enumerable = new Enumerable([{name:'apple', code:9},{name:'orange', code:4},{name:'apple', code:9},{name:'lemon', code:12}]);
+	enumerable = enumerable.distinct(comparer).select(function(x) { return x.code; });
+	tester.assert(enumerable.toArray(), [9, 4, 12], 'Distinct method test using custom comparer.');
+
+
+	enumerable = new Enumerable([5,3,9,7,5,9,3,7]);
+	enumerable = enumerable.union(new Enumerable([8,3,6,4,4,9,1,0]));
+	tester.assert(enumerable.toArray(), [5,3,9,7,8,6,4,1,0], 'Union method test');
+	
+	enumerable = new Enumerable([{name: 'apple', code:9}, {name:'orange', code:4}]);
+	enumerable = enumerable.union(new Enumerable([{name: 'apple', code:9}, {name:'lemon', code:12}]), comparer);
+	tester.assert(enumerable.select(function(x) { return x.code; }).toArray(), [9, 4, 12], 'Union method test using custom comparer');
+	
+
+
 
 	// run the tests
 	tester.run();

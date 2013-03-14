@@ -301,6 +301,10 @@ Enumerable.prototype.toArray = function() {
 
 /* prototype extensions for using enumerables */
 
+Enumerable.prototype.distinct = function(comparer) {
+	return new DistinctEnumerable(this, comparer);
+};
+
 // applies a selector function to all elements in this enumerable.
 Enumerable.prototype.select = function(selector) {
 	return new SelectEnumerable(this, selector);
@@ -329,6 +333,10 @@ Enumerable.prototype.take = function(number) {
 // takes elements from this enumerable as long as a specified condition is met.
 Enumerable.prototype.takeWhile = function(predicate) {
 	return new TakeWhileEnumerable(this, predicate);
+};
+
+Enumerable.prototype.union = function(second, comparer) {
+	return new UnionEnumerable(this, second, comparer);
 };
 
 // reduces this enumerable to those elements that meet the specified condition.
