@@ -12,3 +12,8 @@ DistinctEnumerable.prototype = new Enumerable();
 DistinctEnumerable.prototype.getEnumerator = function() {
 	return new DistinctEnumerator(this._source, this._comparer);
 };
+
+
+Enumerable.prototype.distinct = function(comparer) {
+	return new DistinctEnumerable(this, comparer);
+};

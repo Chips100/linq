@@ -15,3 +15,8 @@ RangeEnumerable.prototype = new Enumerable();
 RangeEnumerable.prototype.getEnumerator = function() {
 	return new RangeEnumerator(this._start, this._count);
 };
+
+
+Enumerable.range = function(start, count) {
+	return new RangeEnumerable(start, count);
+};

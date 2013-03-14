@@ -16,3 +16,8 @@ SelectManyEnumerable.prototype = new Enumerable();
 SelectManyEnumerable.prototype.getEnumerator = function() {
 	return new SelectManyEnumerator(this._source, this._collectionSelector, this._resultSelector);
 }
+
+
+Enumerable.prototype.selectMany = function(collectionSelector, resultSelector) {
+	return new SelectManyEnumerable(this, collectionSelector, resultSelector);
+};

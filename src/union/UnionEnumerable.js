@@ -16,3 +16,8 @@ UnionEnumerable.prototype = new Enumerable();
 UnionEnumerable.prototype.getEnumerator = function() {
 	return new UnionEnumerator(this._first, this._second, this._comparer);
 };
+
+
+Enumerable.prototype.union = function(second, comparer) {
+	return new UnionEnumerable(this, second, comparer);
+};

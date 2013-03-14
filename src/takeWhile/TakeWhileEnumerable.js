@@ -8,3 +8,8 @@ TakeWhileEnumerable.prototype = new Enumerable();
 TakeWhileEnumerable.prototype.getEnumerator = function() {
 	return new TakeWhileEnumerator(this._enumerable, this._predicate);
 }
+
+
+Enumerable.prototype.takeWhile = function(predicate) {
+	return new TakeWhileEnumerable(this, predicate);
+};

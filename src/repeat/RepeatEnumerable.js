@@ -12,3 +12,8 @@ RepeatEnumerable.prototype = new Enumerable();
 RepeatEnumerable.prototype.getEnumerator = function() {
 	return new RepeatEnumerator(this._element, this._count);
 };
+
+
+Enumerable.repeat = function(element, count) {
+	return new RepeatEnumerable(element, count);
+}

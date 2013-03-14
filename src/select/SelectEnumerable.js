@@ -15,3 +15,8 @@ SelectEnumerable.prototype = new Enumerable();
 SelectEnumerable.prototype.getEnumerator = function() {
 	return new SelectEnumerator(this._source, this._selector);
 }
+
+
+Enumerable.prototype.select = function(selector) {
+	return new SelectEnumerable(this, selector);
+};

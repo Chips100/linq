@@ -15,3 +15,8 @@ WhereEnumerable.prototype = new Enumerable();
 WhereEnumerable.prototype.getEnumerator = function() {
 	return new WhereEnumerator(this._source, this._predicate);
 }
+
+
+Enumerable.prototype.where = function(predicate) {
+	return new WhereEnumerable(this, predicate);
+};

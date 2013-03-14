@@ -15,3 +15,8 @@ ConcatEnumerable.prototype = new Enumerable();
 ConcatEnumerable.prototype.getEnumerator = function() {
 	return new ConcatEnumerator(this._first, this._second);
 };
+
+
+Enumerable.prototype.concat = function(second) {
+	return new ConcatEnumerable(this, second);
+}
