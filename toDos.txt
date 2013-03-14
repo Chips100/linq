@@ -1,0 +1,7 @@
+Used string representation of elements in distinct, union and intersect.
+To have some kind of optimization by using faster lookups.
+
+Problem: What if a comparer is supplied, that makes two objects equal, although their string representations are not???
+We have to kick out this lookup thing unfortunately.
+some hash algorithm would be cool.
+Maybe we can have optionally accept comparer which offer functions for equality check and hashing???

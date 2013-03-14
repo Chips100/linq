@@ -202,6 +202,14 @@
 
 
 
+	enumerable = new Enumerable([44, 26, 92, 30, 71, 38]);
+	enumerable = enumerable.intersect(new Enumerable([39,59,83, 47, 26, 4, 30]));
+	tester.assert(enumerable.toArray(), [26, 30], 'Intersect method test.');
+
+	enumerable = new Enumerable([{name: 'apple', code:9}, {name:'orange', code:4}]);
+	enumerable = enumerable.intersect(new Enumerable([{name: 'apple', code:9}, {name:'lemon', code:12}]), comparer);
+	tester.assert(enumerable.select(function(x) { return x.code; }).toArray(), [9], 'Intersect method test using custom comparer');
+
 	// run the tests
 	tester.run();
 })(this);
