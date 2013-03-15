@@ -10,7 +10,7 @@ SelectManyEnumerator.prototype.getCurrent = function() {
 	var current = this._currentEnumerator.getCurrent();
 	
 	if (this._resultSelector) {
-		return this._resultSelector.call(current, current, this._currentElement);
+		return this._resultSelector.call(this._currentElement, this._currentElement, current);
 	}
 	else {
 		return current;
