@@ -5,3 +5,5 @@ Problem: What if a comparer is supplied, that makes two objects equal, although 
 We have to kick out this lookup thing unfortunately.
 some hash algorithm would be cool.
 Maybe we can have optionally accept comparer which offer functions for equality check and hashing???
+
+last: optimization when (and if) sometime List will be implemented.
