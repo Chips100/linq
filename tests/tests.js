@@ -207,11 +207,11 @@ test('first on empty sequence', function() {
 	
 	throws(function() {
 		source.first();
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
 	
 	throws(function() {
 		source.first(function(x) { return true; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
 });
 
 test('first on single element sequence', function() {
@@ -219,7 +219,7 @@ test('first on single element sequence', function() {
 	
 	throws(function() {
 		source.first(function(x) { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
 	
 	strictEqual(source.first(), 1, 'returns first element if no predicate specified');
 	strictEqual(source.first(function(x) { return true; }), 1, 'returns first element if predicate matches');
@@ -230,7 +230,7 @@ test('first on multiple element sequence', function() {
 	
 	throws(function() {
 		source.first(function() { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
 
 	strictEqual(source.first(), 1, 'returns first element when no predicate is specified');
 	strictEqual(source.first(function(x) { return x === 6; }), 6, 'returns only matching element in sequence');
@@ -288,11 +288,11 @@ test('last on empty sequence', function() {
 	
 	throws(function() {
 		source.last();
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
 	
 	throws(function() {
 		source.last(function(x) { return true; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
 });
 
 test('last on single element sequence', function() {
@@ -300,7 +300,7 @@ test('last on single element sequence', function() {
 	
 	throws(function() {
 		source.last(function(x) { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
 	
 	strictEqual(source.last(), 1, 'returns last element if no predicate specified');
 	strictEqual(source.last(function(x) { return true; }), 1, 'returns last element if predicate matches');
@@ -311,7 +311,7 @@ test('last on multiple element sequence', function() {
 	
 	throws(function() {
 		source.last(function() { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
 
 	strictEqual(source.last(), 10, 'returns last element when no predicate is specified');
 	strictEqual(source.last(function(x) { return x === 6; }), 6, 'returns only matching element in sequence');
@@ -351,11 +351,11 @@ test('single on empty sequence', function() {
 	
 	throws(function() {
 		source.single();
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence without predicate');
 	
 	throws(function() {
 		source.single(function(x) { return true; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on empty sequence with predicate');
 });
 
 test('single on single element sequence', function() {
@@ -363,7 +363,7 @@ test('single on single element sequence', function() {
 	
 	throws(function() {
 		source.single(function(x) { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error on sequence with no matching predicate');
 	
 	strictEqual(source.single(), 1, 'returns single element if no predicate specified');
 	strictEqual(source.single(function(x) { return true; }), 1, 'returns single element if predicate matches');
@@ -374,7 +374,7 @@ test('single on multiple element sequence', function() {
 	
 	throws(function() {
 		source.single(function() { return false; });
-	}, /no items matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
+	}, /No item matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
 	throws(function() {
 		source.single();
 	}, /sequence contained multiple matching elements/, 'throws error when no predicate specified');

@@ -1,3 +1,13 @@
+/**
+ * @file Defines the List type.
+ * @author Chips100
+ */
+
+/**
+ * Creates a list from the specified array, or an empty list if omitted.
+ * @class
+ * @param {Array|Enumerable} [array] - An array or a sequence with items to initially fill the list with.
+ */
 function List(array) {
     if (array instanceof Enumerable) {
         array = array.toArray();
@@ -39,6 +49,12 @@ List.prototype.copyTo = function(target, index) {
     }
 };
 
+/** @this List
+ * @override 
+ * Returns a number that represents how many elements in the specified sequence satisfy a condition.
+ * @param {Function} [predicate] - A function to test each element for a condition. If omitted, all items are counted.
+ * @returns {Number} A number that represents how many elements in the sequence satisfy the condition in the predicate function.
+ */
 List.prototype.count = function(predicate) {
   if (!predicate) {
     return this._array.length;
@@ -48,10 +64,21 @@ List.prototype.count = function(predicate) {
   }
 };
 
+/** @this List
+ * @override 
+ * Returns the element at a specified index in a sequence.
+ * @param {Number} index - The zero-based index of the element to retrieve.
+ * @returns {*} The element at the specified position in the source sequence.
+ */
 List.prototype.elementAt = function(index) {
     return this._array[i];
 }
 
+/** @this List 
+ * @override
+ * Returns an enumerator that iterates through this list.
+ * @returns {ListEnumerator} An enumerator object that can be used to iterate through this list.
+ */
 List.prototype.getEnumerator = function() {
   return new ListEnumerator(this._array);  
 };
