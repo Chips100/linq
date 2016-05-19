@@ -1,12 +1,12 @@
 module('Enumerable#where');
 test('simple filtering', function() {
-	var ints = new Enumerable([1, 3, 4, 2, 8, 1]);
+	var ints = new List([1, 3, 4, 2, 8, 1]);
 	deepEqual(ints.where(function(x) { return x < 4; }).toArray(),
 		[1, 3, 2, 1], 'filter numbers smaller than 4');
 });
 
 test('where predicate null exception', function() {
-	var ints = new Enumerable([1, 3, 4, 2, 8, 1]);
+	var ints = new List([1, 3, 4, 2, 8, 1]);
 	
 	throws(function() {
 		ints = ints.where();
@@ -14,7 +14,7 @@ test('where predicate null exception', function() {
 });
 
 test('where deferred execution', function() {
-	var ints = new Enumerable([1, 3, 4, 2, 8, 1]);
+	var ints = new List([1, 3, 4, 2, 8, 1]);
 	ints = ints.where(function(x) { throw new Error('deferred'); });
 	
 	throws(function() {
@@ -23,13 +23,13 @@ test('where deferred execution', function() {
 });
 
 test('another simple filtering', function() {
-	var fruits = new Enumerable(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
+	var fruits = new List(["apple", "passionfruit", "banana", "mango", "orange", "blueberry", "grape", "strawberry"]);
 	deepEqual(fruits.where(function(x) { return x.length < 6; }).toArray(),
 		['apple', 'mango', 'grape'], 'filters strings with a length below 6');
 });
 
 test('filtering using elements index', function() {
-	var ints = new Enumerable([0, 30, 20, 15, 90, 85, 40, 75 ]);
+	var ints = new List([0, 30, 20, 15, 90, 85, 40, 75 ]);
 	deepEqual(ints.where(function(number, index) { return number <= index * 10; }).toArray(),
 		[0, 20, 15, 40], 'filters numbers smaller then the tenfold of their index in sequence');
 });
@@ -38,7 +38,7 @@ test('filtering using elements index', function() {
 
 module('Enumerable#select');
 test('simple projection to different type', function() {
-	var source = new Enumerable([1, 5, 2 ]);
+	var source = new List([1, 5, 2 ]);
 	deepEqual(source.select(function(x) { return x.toString(); }).toArray(),
 		['1', '5', '2'], 'converts numbers to strings');
 });
@@ -48,7 +48,7 @@ test('Side effects in projection', function() {
 		count = 0;
 		
 	sourceArray.length = 3;
-	var query = new Enumerable(sourceArray).select(function(x) { return count++; });
+	var query = new List(sourceArray).select(function(x) { return count++; });
 	
 	deepEqual(query.toArray(), [0, 1, 2], 'first iteration starting with 0');
 	deepEqual(query.toArray(), [3, 4, 5], 'second iteration starting with 3');
@@ -58,7 +58,7 @@ test('Side effects in projection', function() {
 });
 
 test('where and select combination', function() {
-	var source = new Enumerable([1, 3, 4, 2, 8, 1]);
+	var source = new List([1, 3, 4, 2, 8, 1]);
 	deepEqual(source.where(function(x) { return x < 4; }).select(function(x) { return 2*x; }).toArray(),
 		[2, 6, 4, 2], 'filters numbers smaller than 4 and doubles them');
 });
@@ -123,17 +123,17 @@ test('simple count of repitition', function() {
 	equal(Enumerable.repeat(null, 5).count(), 5, 'repitition with five elements has a count of five');
 });
 test('count with a predicate', function() {
-	var source = new Enumerable([{ Name:"Barley", Vaccinated:true }, { Name:"Boots", Vaccinated:false }, { Name:"Whiskers", Vaccinated:false }]);
+	var source = new List([{ Name:"Barley", Vaccinated:true }, { Name:"Boots", Vaccinated:false }, { Name:"Whiskers", Vaccinated:false }]);
 	equal(source.count(function(x) { return !x.Vaccinated; }), 2, 'sequence contains 2 unvaccinated animals');
 });
 
 module('Eumerable#concat');
 test('simple concatenation', function() {
-	var source = new Enumerable([1, 2, 3]).concat(new Enumerable([3, 4, 5]));
+	var source = new List([1, 2, 3]).concat(new List([3, 4, 5]));
 	deepEqual(source.toArray(), [1, 2, 3, 3, 4, 5], 'concatination of two number sequences');
 });
 test('time of first access of first sequence', function() {
-	var source = new ThrowingEnumerable().concat(new Enumerable([]));
+	var source = new ThrowingEnumerable().concat(new List([]));
 	var enumerator = source.getEnumerator();
 	
 	throws(function() {
@@ -141,7 +141,7 @@ test('time of first access of first sequence', function() {
 	}, /throwingenumerable/, 'throws only on first access');
 });
 test('time of first access of second sequence', function() {
-	var source = new Enumerable([1]).concat(new ThrowingEnumerable());
+	var source = new List([1]).concat(new ThrowingEnumerable());
 	var enumerator = source.getEnumerator();
 	
 	ok(enumerator.moveNext());
@@ -154,7 +154,7 @@ test('time of first access of second sequence', function() {
 
 module('Enumerable#selectMany');
 test('flattening with projection and index', function() {
-	var source = new Enumerable([3, 5, 20, 15]).selectMany(function(x, i) { return (x+i).toString().split(''); }, function(x, c) { return x +': '+ c });
+	var source = new List([3, 5, 20, 15]).selectMany(function(x, i) { return (x+i).toString().split(''); }, function(x, c) { return x +': '+ c });
 	deepEqual(source.toArray(), ["3: 3", "5: 6", "20: 2", "20: 2", "15: 1", "15: 8"], 'flattens the input sequence using elements index and projects the result')
 });
 
@@ -178,7 +178,7 @@ test('all-false sequence', function() {
 });
 
 test('mixed sequence', function() {
-	var mixed = new Enumerable([false, false, true, false]);
+	var mixed = new List([false, false, true, false]);
 	ok(mixed.any(function(x) { return x; }), 'any will return true');
 	ok(!mixed.all(function(x) { return x; }), 'all will return false');
 });
@@ -190,7 +190,7 @@ test('all-true sequence', function() {
 });
 
 test('iteration cancelling', function() {
-	var lastThrowsError = new Enumerable([
+	var lastThrowsError = new List([
 		function() { return false; },
 		function() { return true; },
 		function() { throw new Error('should not be reached'); }
@@ -238,7 +238,7 @@ test('first on multiple element sequence', function() {
 });
 
 test('iteration cancel if element found', function() {
-	var enumerable = new Enumerable([
+	var enumerable = new List([
 		function() { return false; },
 		function() { return true; },
 		function() { throw new Error('should not be reached'); }
@@ -273,7 +273,7 @@ test('firstOrDefault on multiple element sequence', function() {
 });
 
 test('iteration cancel if element found', function() {
-	var enumerable = new Enumerable([
+	var enumerable = new List([
 		function() { return false; },
 		function() { return true; },
 		function() { throw new Error('should not be reached'); }
@@ -432,16 +432,16 @@ test('empty input sequence', function() {
 
 module('Enumerable#aggregate');
 test('testing method overloads (similar to msdn examples)', function() {
-	var source = new Enumerable("the quick brown fox jumps over the lazy dog".split(' ')),
+	var source = new List("the quick brown fox jumps over the lazy dog".split(' ')),
 		reversed = source.aggregate(function(workingSentence, next) { return next + " " + workingSentence; });
 		
 	strictEqual(reversed, 'dog lazy the over jumps fox brown quick the', 'aggregation to reverse a sentence');
 	
-	source = new Enumerable([4, 8, 8, 3, 9, 0, 7, 8, 2]);
+	source = new List([4, 8, 8, 3, 9, 0, 7, 8, 2]);
 	strictEqual(source.aggregate(0, function(total, next) { return next % 2 == 0 ? total + 1 : total; }),
 		6, 'aggregation to count even numbers with a seed');
 		
-	source = new Enumerable(["apple", "mango", "orange", "passionfruit", "grape"]);
+	source = new List(["apple", "mango", "orange", "passionfruit", "grape"]);
 	strictEqual(
 		source.aggregate(
 			'banana', 
@@ -451,7 +451,7 @@ test('testing method overloads (similar to msdn examples)', function() {
 });
 
 test('Seeded aggregate with result selector', function() {
-	var source = new Enumerable([1, 4, 5]),
+	var source = new List([1, 4, 5]),
 		seed = 5;
 		
 	strictEqual(source.aggregate(
@@ -463,13 +463,13 @@ test('Seeded aggregate with result selector', function() {
 
 module('Enumerable#distinct');
 test('msdn example pendants', function() {
-	var ages = new Enumerable([21, 46, 46, 55, 17, 21, 55, 55]),
+	var ages = new List([21, 46, 46, 55, 17, 21, 55, 55]),
 		distinctAges = ages.distinct();
 		
 	deepEqual(distinctAges.toArray(), [21, 46, 55, 17], 'distinct on numbers with default equality comparer');
 
 	var customComparer = function(a, b) { return a === b || (!!a && !!b && a.code === b.code && a.name === b.name); },
-		source = new Enumerable([
+		source = new List([
 			{ name: "apple", code: 9 }, 
 			{ name: "orange", code: 4 }, 
       { name: "apple", code: 9 }, 

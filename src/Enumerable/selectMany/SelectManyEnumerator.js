@@ -27,7 +27,7 @@ SelectManyEnumerator.prototype.moveNext = function() {
 			currentCollection = this._collectionSelector.call(this._currentElement, this._currentElement, this._index);
 			
 			if (!(currentCollection instanceof Enumerable)) {
-				currentCollection = new Enumerable(currentCollection);
+				currentCollection = new List(currentCollection);
 			}
 			this._currentEnumerator = currentCollection.getEnumerator();
 			
