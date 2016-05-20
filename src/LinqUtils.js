@@ -69,6 +69,34 @@ var LinqUtils = {
   },
   
   /** 
+   * Creates an equality comparer with implementations of equals and getHashCode by the specified value.
+   * If the value is a function, it will be used as the equals implementation.
+   * If the value is an object with an equals function, it will be returned.
+   * Otherwise, a default equality comparer is returned.
+   * @param {Function|Object} [comparer] - The value to create the equality comparer from.
+   * @returns {Function} The specified equality comparer function if supplied correctly, otherwise false.
+   */
+  createEqualityComparer: function(comparer) {
+    if (comparer && this.isFunction(comparer.equals)) {
+      // Comparer provided in a correct format.
+      // Return the original object, as it might rely on its this binding.
+      // If it does not implement getHashCode, we inject a default implementation.
+      comparer.getHashCode = this.isFunction(comparer.getHashCode) ? comparer.getHashCode : defaultGetHashCodeFunction;
+      return comparer;
+    }
+    else {
+      return {
+        equals: this.isFunction(comparer) ? comparer : this.defaultEqualityComparer,
+        getHashCode: defaultGetHashCodeFunction
+      };
+    }
+    
+    function defaultGetHashCodeFunction(arg) {
+      return 1;
+    }
+  },
+  
+  /** 
    * Default equality comparer function that checks two arguments for equality.
    * @param {any} [a] - The first value that should be checked for equality.
    * @param {any} [b] - The second value that should be checked for equality.

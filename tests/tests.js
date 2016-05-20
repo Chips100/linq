@@ -385,6 +385,14 @@ test('single on multiple element sequence', function() {
 	strictEqual(source.single(function(x) { return x === 6; }), 6, 'returns only matching element in sequence');
 });
 
+module('Enumerable#intersect');
+test('Test intersect on lists of numbers.', function() {
+	var first = new List([44, 26, 92, 30, 71, 38]);
+	var second = new List([39, 59, 83, 47, 26, 4, 30]);
+	deepEqual(first.intersect(second).toArray(),
+		[26, 30], 'found correct intersections');
+});
+
 
 module('Enumerable#singleOrDefault');
 test('singleOrDefault on empty sequence', function() {

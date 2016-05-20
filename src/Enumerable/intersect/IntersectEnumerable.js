@@ -8,7 +8,7 @@ function IntersectEnumerable(first, second, comparer) {
 	
 	this._first = first;
 	this._second = second;
-	this._comparer = comparer;
+	this._comparer = LinqUtils.createEqualityComparer(comparer);
 }
 
 IntersectEnumerable.prototype = Object.create(Enumerable.prototype);
