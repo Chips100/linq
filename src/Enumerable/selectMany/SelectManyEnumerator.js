@@ -9,7 +9,7 @@ function SelectManyEnumerator(enumerable, collectionSelector, resultSelector) {
 SelectManyEnumerator.prototype.getCurrent = function() {
 	var current = this._currentEnumerator.getCurrent();
 	
-	if (this._resultSelector) {
+	if (LinqUtils.isFunction(this._resultSelector)) {
 		return this._resultSelector.call(this._currentElement, this._currentElement, current);
 	}
 	else {
@@ -20,33 +20,35 @@ SelectManyEnumerator.prototype.getCurrent = function() {
 SelectManyEnumerator.prototype.moveNext = function() {
 	var currentCollection;
 	
-	if (!this._currentEnumerator || !this._currentEnumerator.moveNext()) {
+	if (this._currentEnumerator && this._currentEnumerator.moveNext()) {
+		return true;
+	}
+	else {
 		this._index++;
-		if (this._enumerator.moveNext()) {
+		
+		if (!this._enumerator.moveNext()) {
+			// No more elements in original enumeration left.
+			return false;
+		}
+		else {
 			this._currentElement = this._enumerator.getCurrent();
 			currentCollection = this._collectionSelector.call(this._currentElement, this._currentElement, this._index);
 			
 			if (!(currentCollection instanceof Enumerable)) {
 				currentCollection = new List(currentCollection);
 			}
+			
 			this._currentEnumerator = currentCollection.getEnumerator();
 			
 			if (this._currentEnumerator.moveNext()) {
 				return true;
 			}
 			else {
-				//this collection of original enumeration element contains no elements
-				//so we try to move to the next original enumeration element by calling this.moveNext
+				// This collection of original enumeration element contains no elements.
+				// So we try to move to the next original enumeration element by calling this.moveNext.
 				return this.moveNext();
 			}
 		}
-		else {
-			//no more elements in original enumeration left.
-			return false;
-		}
-	}
-	else {
-		return true;
 	}
 };
 

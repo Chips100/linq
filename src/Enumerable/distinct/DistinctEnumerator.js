@@ -16,7 +16,7 @@ DistinctEnumerator.prototype.moveNext = function() {
 	
 	if (this._enumerator.moveNext()) {
 		current = this._enumerator.getCurrent();
-		currentHash = current.toString();
+		currentHash = this._comparer.getHashCode(current);
 		
 		if (!this._seenElements[currentHash]) {
 			this._seenElements[currentHash] = [current];
@@ -24,8 +24,7 @@ DistinctEnumerator.prototype.moveNext = function() {
 		}
 		else {
 			for (var i = this._seenElements[currentHash].length - 1; i >= 0; i--) {
-				possibleDuplicate = this._seenElements[currentHash][i];
-				if (!this._comparer ? possibleDuplicate === current : this._comparer.call(current, current, possibleDuplicate)) {
+				if (this._comparer.equals(current, this._seenElements[currentHash][i])) {
 					return this.moveNext();
 				}
 			}

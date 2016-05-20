@@ -17,29 +17,30 @@ UnionEnumerator.prototype.getCurrent = function() {
 
 UnionEnumerator.prototype.moveNext = function() {	
 	var current,
-		currentSet = false,
-		currentHash,
-		possibleDuplicate;
+		foundItem = false,
+		currentHash;
 	
 	if (this._isFirstActive) {
 		if (this._firstEnumerator.moveNext()) {
-			currentSet = true;
+			foundItem = true;
 			current = this._firstEnumerator.getCurrent();
 		}
 		else {
+			// First sequence is exhausted, try the second one by this.moveNext().
 			this._isFirstActive = false;
 			return this.moveNext();
 		}
 	}
 	else {
 		if (this._secondEnumerator.moveNext()) {
-			currentSet = true;
+			foundItem = true;
 			current = this._secondEnumerator.getCurrent();
 		}
 	}
 	
-	if (currentSet) {
-		currentHash = current.toString();
+	if (foundItem) {
+		// We found another item. Make sure it has not already been yielded.
+		currentHash = this._comparer.getHashCode(current);
 		
 		if (!this._seenElements[currentHash]) {
 			this._seenElements[currentHash] = [current];
@@ -47,8 +48,7 @@ UnionEnumerator.prototype.moveNext = function() {
 		}
 		else {
 			for (var i = this._seenElements[currentHash].length - 1; i >= 0; i--) {
-				possibleDuplicate = this._seenElements[currentHash][i];
-				if (!this._comparer ? possibleDuplicate === current : this._comparer.call(current, current, possibleDuplicate)) {
+				if (this._comparer.equals(current, this._seenElements[currentHash][i])) {
 					return this.moveNext();
 				}
 			}

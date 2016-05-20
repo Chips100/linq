@@ -6,7 +6,7 @@ function SelectEnumerable(source, selector) {
 	LinqUtils.checkEnumerableArgument(source, 'source');
 	LinqUtils.checkFunctionArgument(selector, 'selector');
 	
-	this._source = source || new Enumerable();
+	this._source = source;
 	this._selector = selector;
 }
 

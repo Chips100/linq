@@ -6,7 +6,7 @@ function RangeEnumerator(start, count) {
 }
 
 RangeEnumerator.prototype.getCurrent = function() {
-	if (this._index <= (this._start) || this._index > this._end ) {
+	if (this._index <= this._start || this._index > this._end ) {
 		throw new Error('invalid cursor position');
 	}
 	
@@ -14,7 +14,7 @@ RangeEnumerator.prototype.getCurrent = function() {
 };
 
 RangeEnumerator.prototype.moveNext = function() {
-	return this._index++ < (this._end);
+	return this._index++ < this._end;
 };
 
 RangeEnumerator.prototype.reset = function() {

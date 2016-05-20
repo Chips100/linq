@@ -6,7 +6,6 @@ function SelectEnumerator(enumerable, selector) {
 
 SelectEnumerator.prototype.getCurrent = function() {
 	var current = this._enumerator.getCurrent();
-	
 	return this._selector.call(current, current, this._index);
 };
 

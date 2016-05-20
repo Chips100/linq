@@ -6,7 +6,7 @@ function DistinctEnumerable(source, comparer) {
 	LinqUtils.checkEnumerableArgument(source, 'source');
 	
 	this._source = source;
-	this._comparer = comparer;
+	this._comparer = LinqUtils.createEqualityComparer(comparer);
 }
 
 DistinctEnumerable.prototype = Object.create(Enumerable.prototype);

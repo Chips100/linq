@@ -12,31 +12,18 @@ ExceptEnumerator.prototype.getCurrent = function() {
 
 ExceptEnumerator.prototype.moveNext = function() {
 	var current,
-		currentHash,
-		possibleDuplicate,
-		wasDuplicateFound;
+		currentHash;
 	
 	if (!this._hasScannedSecond) {
 		while(this._secondEnumerator.moveNext()) {
 			current = this._secondEnumerator.getCurrent();
-			currentHash = current.toString();
+			currentHash = this._comparer.getHashCode(current);
 		
 			if (!this._bannedElements[currentHash]) {
 				this._bannedElements[currentHash] = [current];	
 			}
 			else {
-				wasDuplicateFound = false;
-				for (var i = this._bannedElements[currentHash].length - 1; i >= 0; i--) {
-					possibleDuplicate = this._bannedElements[currentHash][i];
-					if (!this._comparer ? possibleDuplicate === current : this._comparer.call(current, current, possibleDuplicate)) {
-						wasDuplicateFound = true;
-						break;
-					}
-				}
-				
-				if (!wasDuplicateFound) {
-					this._bannedElements[currentHash].push(current);
-				}
+				this._bannedElements[currentHash].push(current);
 			}
 		}		
 		
@@ -45,7 +32,7 @@ ExceptEnumerator.prototype.moveNext = function() {
 	
 	if (this._firstEnumerator.moveNext()) {
 		current = this._firstEnumerator.getCurrent();
-		currentHash = current.toString();
+		currentHash = this._comparer.getHashCode(current);
 		
 		if (!this._bannedElements[currentHash]) {
 			this._bannedElements[currentHash] = [current];
@@ -53,8 +40,7 @@ ExceptEnumerator.prototype.moveNext = function() {
 		}
 		else {
 			for (var i = this._bannedElements[currentHash].length - 1; i >= 0; i--) {
-				possibleDuplicate = this._bannedElements[currentHash][i];
-				if (!this._comparer ? possibleDuplicate === current : this._comparer.call(current, current, possibleDuplicate)) {
+				if (this._comparer.equals(current, this._bannedElements[currentHash][i])) {
 					return this.moveNext();
 				}
 			}
