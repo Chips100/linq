@@ -10,7 +10,7 @@ test('where predicate null exception', function() {
 	
 	throws(function() {
 		ints = ints.where();
-	}, /invalid predicate parameter/, 'throws error for invalid parameter eagerly');
+	}, /Invalid parameter: predicate/, 'throws error for invalid parameter eagerly');
 });
 
 test('where deferred execution', function() {
@@ -77,7 +77,7 @@ test('range creation with negative start', function() {
 test('range creation with negative count (should fail)', function() {
 	throws(function() {
 		Enumerable.range(0, -4);
-	}, /invalid count parameter/, 'throws error eagerly');
+	}, /Parameter value out of range/, 'throws error eagerly');
 })
 
 test('range creation with zero length', function() {
@@ -112,7 +112,7 @@ test('null repetition', function() {
 test('repitition with negative count (should fail)', function() {
 	throws(function() {
 		Enumerable.repeat('string', -5);
-	}, /invalid count parameter/, 'throws error eagerly');
+	}, /Parameter value out of range/, 'throws error eagerly');
 });
 
 module('Enumerable#count');

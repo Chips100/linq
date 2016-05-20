@@ -1,19 +1,17 @@
+Enumerable.prototype.distinct = function(comparer) {
+	return new DistinctEnumerable(this, comparer);
+};
+
 function DistinctEnumerable(source, comparer) {
-	if (!source || !(source instanceof Enumerable)) {
-		throw new Error('invalid source parameter: ' + source);
-	}
+	LinqUtils.checkEnumerableArgument(source, 'source');
 	
 	this._source = source;
 	this._comparer = comparer;
 }
 
-DistinctEnumerable.prototype = new Enumerable();
+DistinctEnumerable.prototype = Object.create(Enumerable.prototype);
 
 DistinctEnumerable.prototype.getEnumerator = function() {
 	return new DistinctEnumerator(this._source, this._comparer);
 };
 
-
-Enumerable.prototype.distinct = function(comparer) {
-	return new DistinctEnumerable(this, comparer);
-};

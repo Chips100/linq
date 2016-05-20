@@ -1,15 +1,17 @@
-function TakeEnumerable(enumerable, number) {
-	this._enumerable = enumerable || new Enumerable();
+Enumerable.prototype.take = function(number) {
+	return new TakeEnumerable(this, number);
+};
+
+function TakeEnumerable(source, number) {
+	LinqUtils.checkEnumerableArgument(source, 'source');
+	LinqUtils.checkNumberArgument(number, 'number');
+	
+	this._source = source;
 	this._number = number;
 }
 
-TakeEnumerable.prototype = new Enumerable();
+TakeEnumerable.prototype = Object.create(Enumerable.prototype);
 
 TakeEnumerable.prototype.getEnumerator = function() {
-	return new TakeEnumerator(this._enumerable, this._number);
-}
-
-
-Enumerable.prototype.take = function(number) {
-	return new TakeEnumerable(this, number);
+	return new TakeEnumerator(this._source, this._number);
 };

@@ -1,15 +1,17 @@
-function TakeWhileEnumerable(enumerable, predicate) {
-	this._enumerable = enumerable || new Enumerable();
+Enumerable.prototype.takeWhile = function(predicate) {
+	return new TakeWhileEnumerable(this, predicate);
+};
+
+function TakeWhileEnumerable(source, predicate) {
+	LinqUtils.checkEnumerableArgument(source, 'source');
+	LinqUtils.checkFunctionArgument(predicate, 'predicate');
+	
+	this._source = source;
 	this._predicate = predicate;
 }
 
-TakeWhileEnumerable.prototype = new Enumerable();
+TakeWhileEnumerable.prototype = Object.create(Enumerable.prototype);
 
 TakeWhileEnumerable.prototype.getEnumerator = function() {
-	return new TakeWhileEnumerator(this._enumerable, this._predicate);
-}
-
-
-Enumerable.prototype.takeWhile = function(predicate) {
-	return new TakeWhileEnumerable(this, predicate);
+	return new TakeWhileEnumerator(this._source, this._predicate);
 };
