@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Enumerable/selectMany/SelectManyEnumerable.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Enumerable/selectMany/SelectManyEnumerable.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Adds the selectMany method to the Enumerable prototype.
+ * @author Chips100
+ */
+
+/** @this Enumerable 
+ * Projects each element of a sequence to an Enumerable, flattens the resulting sequences into one sequence, 
+ * and invokes a result selector function on each element therein. 
+ * The index of each source element can be used in the intermediate projected form of that element.
+ * @param {Function} collectionSelector - A transform function to apply to each source element; the second parameter of the function represents the index of the source element.
+ * @param {Function} [resultSelector] - An optional transform function to apply to each element of the intermediate sequence.
+ * @returns {Enumerable} An Enumerable whose elements are the result of invoking the one-to-many transform function collectionSelector 
+ * on each element of source and then mapping each of those sequence elements and their corresponding source element to a result element.
+ */
+Enumerable.prototype.selectMany = function(collectionSelector, resultSelector) {
+	return new SelectManyEnumerable(this, collectionSelector, resultSelector);
+};
+
+/**
+ * Represents an Enumerable created by a selectMany operation.
+ * @class
+ * @augments Enumerable
+ * @param {Enumerable} source - A sequence of values to project.
+ * @param {Function} collectionSelector - A transform function to apply to each source element; the second parameter of the function represents the index of the source element.
+ * @param {Function} [resultSelector] - An optional transform function to apply to each element of the intermediate sequence.
+ */
+function SelectManyEnumerable(source, collectionSelector, resultSelector) {
+	LinqUtils.checkEnumerableArgument(source, 'source');
+	LinqUtils.checkFunctionArgument(collectionSelector, 'collectionSelector');
+	
+	this._source = source;
+	this._collectionSelector = collectionSelector;
+	this._resultSelector = resultSelector;
+}
+
+// Put the Enumerable prototype into the prototype chain.
+SelectManyEnumerable.prototype = Object.create(Enumerable.prototype);
+
+/** @this SelectManyEnumerable 
+ * @override
+ * Returns an Enumerator that iterates through the current collection.
+ * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
+ */
+SelectManyEnumerable.prototype.getEnumerator = function() {
+	return new SelectManyEnumerator(this._source, this._collectionSelector, this._resultSelector);
+};
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Advancestheenumeratortothenextelementofthecollection.">Advances the enumerator to the next element of the collection.</a></li><li><a href="global.html#Calculatesahashcodeforthespecifiedvaluetousefordatastructuresandalgorithms.">Calculates a hash code for the specified value to use for data structures and algorithms.</a></li><li><a href="global.html#Determineswhethertwovaluesareequal.">Determines whether two values are equal.</a></li><li><a href="global.html#Getsthecurrentelementinthecollection.">Gets the current element in the collection.</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon May 23 2016 13:04:59 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
