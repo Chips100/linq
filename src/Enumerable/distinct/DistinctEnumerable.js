@@ -29,9 +29,9 @@ function DistinctEnumerable(source, comparer) {
 // Put the Enumerable prototype into the prototype chain.
 DistinctEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this DistinctEnumerable 
- * @override
+/** @this DistinctEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 DistinctEnumerable.prototype.getEnumerator = function() {

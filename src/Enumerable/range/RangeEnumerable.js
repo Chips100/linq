@@ -31,9 +31,9 @@ function RangeEnumerable(start, count) {
 // Put the Enumerable prototype into the prototype chain.
 RangeEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this RangeEnumerable 
- * @override
+/** @this RangeEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 RangeEnumerable.prototype.getEnumerator = function() {

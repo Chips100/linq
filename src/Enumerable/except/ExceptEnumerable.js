@@ -33,9 +33,9 @@ function ExceptEnumerable(first, second, comparer) {
 // Put the Enumerable prototype into the prototype chain.
 ExceptEnumerable.prototype = Object.create(Enumerable);
 
-/** @this ExceptEnumerable 
- * @override
+/** @this ExceptEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 ExceptEnumerable.prototype.getEnumerator = function() {

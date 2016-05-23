@@ -30,9 +30,9 @@ function TakeEnumerable(source, count) {
 // Put the Enumerable prototype into the prototype chain.
 TakeEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this TakeEnumerable 
- * @override
+/** @this TakeEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 TakeEnumerable.prototype.getEnumerator = function() {

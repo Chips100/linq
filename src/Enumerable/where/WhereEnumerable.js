@@ -31,9 +31,9 @@ function WhereEnumerable(source, predicate) {
 // Put the Enumerable prototype into the prototype chain.
 WhereEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this WhereEnumerable 
- * @override
+/** @this WhereEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 WhereEnumerable.prototype.getEnumerator = function() {

@@ -29,9 +29,9 @@ function DefaultIfEmptyEnumerable(source, defaultValue) {
 // Put the Enumerable prototype into the prototype chain.
 DefaultIfEmptyEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this DefaultIfEmptyEnumerable 
- * @override
+/** @this DefaultIfEmptyEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 DefaultIfEmptyEnumerable.prototype.getEnumerator = function() {

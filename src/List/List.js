@@ -51,8 +51,8 @@ List.prototype.copyTo = function(target, index) {
 };
 
 /** @this List
- * @override 
  * Returns a number that represents how many elements in the specified sequence satisfy a condition.
+ * @override 
  * @param {Function} [predicate] - A function to test each element for a condition. If omitted, all items are counted.
  * @returns {Number} A number that represents how many elements in the sequence satisfy the condition in the predicate function.
  */
@@ -66,8 +66,8 @@ List.prototype.count = function(predicate) {
 };
 
 /** @this List
- * @override 
  * Returns the element at a specified index in a sequence.
+ * @override 
  * @param {Number} index - The zero-based index of the element to retrieve.
  * @returns {*} The element at the specified position in the source sequence.
  */
@@ -75,9 +75,9 @@ List.prototype.elementAt = function(index) {
     return this._array[i];
 }
 
-/** @this List 
- * @override
+/** @this List
  * Returns an enumerator that iterates through this list.
+ * @override
  * @returns {ListEnumerator} An enumerator object that can be used to iterate through this list.
  */
 List.prototype.getEnumerator = function() {

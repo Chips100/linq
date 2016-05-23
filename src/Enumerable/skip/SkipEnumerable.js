@@ -30,9 +30,9 @@ function SkipEnumerable(source, count) {
 // Put the Enumerable prototype into the prototype chain.
 SkipEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this SkipEnumerable 
- * @override
+/** @this SkipEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 SkipEnumerable.prototype.getEnumerator = function() {

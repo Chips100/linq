@@ -31,8 +31,8 @@ function ConcatEnumerable(first, second) {
 ConcatEnumerable.prototype = Object.create(Enumerable.prototype);
 
 /** @this ConcatEnumerable 
- * @override
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 ConcatEnumerable.prototype.getEnumerator = function() {

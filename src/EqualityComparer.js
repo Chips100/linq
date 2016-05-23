@@ -4,8 +4,8 @@
 
 /**
  * @typedef EqualityComparer
+ * @desc Supports comparing values for equality and generating hash codes for values.
  * @type Object
- * Supports comparing values for equality and generating hash codes for values.
  * @property {EqualsFunction} equals Determines whether two values are equal.
  * @property {GetHashCodeFunction} getHashCode Calculates a hash code for the specified value to use for data structures and algorithms.
  */

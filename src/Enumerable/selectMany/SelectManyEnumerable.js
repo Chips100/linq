@@ -36,9 +36,9 @@ function SelectManyEnumerable(source, collectionSelector, resultSelector) {
 // Put the Enumerable prototype into the prototype chain.
 SelectManyEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this SelectManyEnumerable 
- * @override
+/** @this SelectManyEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 SelectManyEnumerable.prototype.getEnumerator = function() {

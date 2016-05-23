@@ -30,9 +30,9 @@ function RepeatEnumerable(element, count) {
 // Put the Enumerable prototype into the prototype chain.
 RepeatEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this RepeatEnumerable 
- * @override
+/** @this RepeatEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 RepeatEnumerable.prototype.getEnumerator = function() {

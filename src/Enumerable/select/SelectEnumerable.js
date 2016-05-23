@@ -30,9 +30,9 @@ function SelectEnumerable(source, selector) {
 // Put the Enumerable prototype into the prototype chain.
 SelectEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this SelectEnumerable 
- * @override
+/** @this SelectEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 SelectEnumerable.prototype.getEnumerator = function() {

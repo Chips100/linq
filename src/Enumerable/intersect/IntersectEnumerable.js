@@ -33,9 +33,9 @@ function IntersectEnumerable(first, second, comparer) {
 // Put the Enumerable prototype into the prototype chain.
 IntersectEnumerable.prototype = Object.create(Enumerable.prototype);
 
-/** @this IntersectEnumerable 
- * @override
+/** @this IntersectEnumerable
  * Returns an Enumerator that iterates through the current collection.
+ * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
 IntersectEnumerable.prototype.getEnumerator = function() {
