@@ -21,7 +21,7 @@ Enumerable.prototype.take = function(count) {
  */
 function TakeEnumerable(source, count) {
 	LinqUtils.checkEnumerableArgument(source, 'source');
-	LinqUtils.checkNumberArgument(number, 'number');
+	LinqUtils.checkNumberArgument(count, 'count');
 	
 	this._source = source;
 	this._count = count;
@@ -38,3 +38,23 @@ TakeEnumerable.prototype = Object.create(Enumerable.prototype);
 TakeEnumerable.prototype.getEnumerator = function() {
 	return new TakeEnumerator(this._source, this._count);
 };
+
+
+
+var memCache = {};
+function fib(n) {
+	if (memCache[n]) {
+		return memCache[n];
+	}
+	
+	
+	if (n === 0) {
+		return 0;
+	}
+	else if (n === 1) {
+		return 1;
+	}
+	else {
+		return fib(n - 1) + fib(n - 2);
+	}
+}
