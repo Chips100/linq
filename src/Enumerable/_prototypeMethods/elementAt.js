@@ -9,9 +9,7 @@
  * @returns {*} The element at the specified position in the source sequence.
  */
 Enumerable.prototype.elementAt = function(index) {
-  if (index < 0) {
-    LinqUtils.throwArgumentOutOfRangeError('index');
-  }
+  LinqUtils.checkPositiveNumberArgument(index, 'index');
   
   var enumerator = this.getEnumerator(),
       iterator = 0;

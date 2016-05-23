@@ -1,11 +1,28 @@
-function SelectManyEnumerator(enumerable, collectionSelector, resultSelector) {
-	this._enumerator = enumerable.getEnumerator();
+/**
+ * @file Defines the SelectManyEnumerator used to iterate through collections created by a selectMany operation.
+ * @author Chips100
+ */
+
+/**
+ * Represents an Enumerator used to iterate through a collection created by a selectMany operation.
+ * @class
+ * @augments Enumerator
+ * @param {Enumerable} source - A sequence of values to project.
+ * @param {Function} collectionSelector - A transform function to apply to each source element; the second parameter of the function represents the index of the source element.
+ * @param {Function} [resultSelector] - An optional transform function to apply to each element of the intermediate sequence.
+ */
+function SelectManyEnumerator(source, collectionSelector, resultSelector) {
+	this._enumerator = source.getEnumerator();
 	this._collectionSelector = collectionSelector;
 	this._resultSelector = resultSelector;
 	
 	this.reset();
 }
 
+/** @this SelectManyEnumerator 
+ * Gets the current element in the collection.
+ * @returns {*} The current element in the collection.
+ */
 SelectManyEnumerator.prototype.getCurrent = function() {
 	var current = this._currentEnumerator.getCurrent();
 	
@@ -17,6 +34,10 @@ SelectManyEnumerator.prototype.getCurrent = function() {
 	}
 };
 
+/** @this SelectManyEnumerator 
+ * Advances the enumerator to the next element of the collection.
+ * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+ */
 SelectManyEnumerator.prototype.moveNext = function() {
 	var currentCollection;
 	
@@ -52,6 +73,9 @@ SelectManyEnumerator.prototype.moveNext = function() {
 	}
 };
 
+/** @this SelectManyEnumerator 
+ * Sets the enumerator to its initial position, which is before the first element in the collection.
+ */
 SelectManyEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._index = -1;

@@ -1,3 +1,16 @@
+/**
+ * @file Defines the IntersectEnumerator used to iterate through collections created by an intersect operation.
+ * @author Chips100
+ */
+
+/**
+ * Represents an Enumerator used to iterate through a collection created by an intersect operation.
+ * @class
+ * @augments Enumerator
+ * @param {Enumerable} first - An Enumerable whose distinct elements that also appear in second will be returned.
+ * @param {Enumerable} second -  An Enumerable whose distinct elements that also appear in the first sequence will be returned.
+ * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
+ */
 function IntersectEnumerator(first, second, comparer) {
 	this._firstEnumerator = first.getEnumerator();
 	this._secondEnumerator = second.getEnumerator();
@@ -6,10 +19,18 @@ function IntersectEnumerator(first, second, comparer) {
 	this.reset();
 }
 
+/** @this IntersectEnumerator 
+ * Gets the current element in the collection.
+ * @returns {*} The current element in the collection.
+ */
 IntersectEnumerator.prototype.getCurrent = function() {
 	return this._firstEnumerator.getCurrent();
 };
 
+/** @this IntersectEnumerator 
+ * Advances the enumerator to the next element of the collection.
+ * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+ */
 IntersectEnumerator.prototype.moveNext = function() {
 	var current,
 		currentHash;
@@ -74,6 +95,9 @@ IntersectEnumerator.prototype.moveNext = function() {
 	}
 };
 
+/** @this IntersectEnumerator 
+ * Sets the enumerator to its initial position, which is before the first element in the collection.
+ */
 IntersectEnumerator.prototype.reset = function() {
 	this._firstEnumerator.reset();
 	this._secondEnumerator.reset();

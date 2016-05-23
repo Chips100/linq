@@ -1,3 +1,16 @@
+/**
+ * @file Defines the UnionEnumerator used to iterate through collections created by a union operation.
+ * @author Chips100
+ */
+
+/**
+ * Represents an Enumerator used to iterate through a collection created by a union operation.
+ * @class
+ * @augments Enumerator
+ * @param {Enumerable} first - An Enumerable whose distinct elements form the first set for the union.
+ * @param {Enumerable} second - An Enumerable whose distinct elements form the second set for the union.
+ * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
+ */
 function UnionEnumerator(first, second, comparer) {
 	this._firstEnumerator = first.getEnumerator();
 	this._secondEnumerator = second.getEnumerator();
@@ -6,6 +19,10 @@ function UnionEnumerator(first, second, comparer) {
 	this.reset();
 }
 
+/** @this UnionEnumerator 
+ * Gets the current element in the collection.
+ * @returns {*} The current element in the collection.
+ */
 UnionEnumerator.prototype.getCurrent = function() {
 	if (this._isFirstActive) {
 		return this._firstEnumerator.getCurrent();
@@ -15,6 +32,10 @@ UnionEnumerator.prototype.getCurrent = function() {
 	}
 };
 
+/** @this UnionEnumerator 
+ * Advances the enumerator to the next element of the collection.
+ * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+ */
 UnionEnumerator.prototype.moveNext = function() {	
 	var current,
 		foundItem = false,
@@ -62,6 +83,9 @@ UnionEnumerator.prototype.moveNext = function() {
 	}
 };
 
+/** @this UnionEnumerator 
+ * Sets the enumerator to its initial position, which is before the first element in the collection.
+ */
 UnionEnumerator.prototype.reset = function() {
 	this._firstEnumerator.reset();
 	this._secondEnumerator.reset();

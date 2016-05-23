@@ -8,7 +8,9 @@
  * @returns {Enumerable} An empty sequence.
  */
 Enumerable.empty = function() {
-	if (!Enumerable.empty._singleTon) {		
+	if (!Enumerable.empty._singleTon) {
+		// First time using the empty singleton.
+		// Initialize the Enumerable and Enumerator prototypes with empty methods.	
 		EmptyEnumerable.prototype = Object.create(Enumerable.prototype);
 		EmptyEnumerable.prototype.getEnumerator = function() { return new EmptyEnumerator(); };
 		

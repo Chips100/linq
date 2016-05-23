@@ -6,6 +6,7 @@
 /**
  * Creates a list from the specified array, or an empty list if omitted.
  * @class
+ * @augments Enumerable
  * @param {Array|Enumerable} [array] - An array or a sequence with items to initially fill the list with.
  */
 function List(array) {
