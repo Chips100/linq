@@ -17,3 +17,11 @@ function Enumerable() {}
 Enumerable.prototype.getEnumerator = function() {
 	throw new Error('Not implemented: Enumerable does not support getEnumerator.');
 };
+
+/** @this Enumerable
+ * Creates a new List with the items from this sequence.
+ * @returns {List} A List with the items from this sequence.
+ */
+Enumerable.prototype.toList = function() {
+	return new List(this);	
+};
