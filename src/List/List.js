@@ -163,3 +163,24 @@ List.prototype.insertRange = function(index, elements) {
     
     Array.prototype.splice.apply(this._array, args);
 };
+
+/** @this List
+ * Reverses the order of the elements in this List.
+ * @param {Number} [index] - The zero-based starting index of the range to reverse. If omitted, the complete List is reversed.
+ * @param {Number} [count] - The number of elements in the range to reverse.
+ */
+List.prototype.reverse = function(index, count) {
+  if (isNaN(index)) {
+    this._array.reverse();  
+  }
+  else {
+    
+    var range = this._array.slice(index, index + count);
+    range.reverse();
+    
+    // Insert first parameters to splice.
+    range.unshift(range.length);
+    range.unshift(index);
+    Array.prototype.splice.apply(this._array, range);     
+  }
+};

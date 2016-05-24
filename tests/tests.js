@@ -489,7 +489,7 @@ test('msdn example pendants', function() {
 });
 
 module('List#insert');
-test('msdn example pendants', function() {
+test('Simple insert test cases.', function() {
 	var list = new List(['Mustang', 'Mustang GT', 'Shelby GT500']);
 		
 	list.insert(1, 'Camaro');
@@ -497,5 +497,16 @@ test('msdn example pendants', function() {
 	
 	list.insertRange(3, ['Challenger', 'Charger']);
 	deepEqual(list.toArray(), ['Mustang', 'Camaro', 'Mustang GT', 'Challenger', 'Charger', 'Shelby GT500'], 'insertion of multiple element');
+});
+
+module('List#reverse');
+test('Simple Reverse test cases.', function() {
+	var list = new List(['Mustang', 'Camaro', 'Mustang GT', 'Challenger', 'Charger', 'Shelby GT500']);
+		
+	list.reverse();
+	deepEqual(list.toArray(), ['Shelby GT500', 'Charger', 'Challenger', 'Mustang GT', 'Camaro', 'Mustang'], 'Reversion of complete list');
+	
+	list.reverse(2, 3);
+	deepEqual(list.toArray(), ['Shelby GT500', 'Charger', 'Camaro', 'Mustang GT', 'Challenger', 'Mustang'], 'Reversion of range in list');
 });
 
