@@ -20,8 +20,8 @@ Enumerable.prototype.take = function(count) {
  * @param {Number} count - The number of elements to return.
  */
 function TakeEnumerable(source, count) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
-	LinqUtils.checkNumberArgument(count, 'count');
+	LinqAssert.requiredEnumerable(source, 'source');
+	LinqAssert.requiredNumber(count, 'count');
 	
 	this._source = source;
 	this._count = count;

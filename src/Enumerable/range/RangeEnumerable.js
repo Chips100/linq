@@ -21,8 +21,8 @@ Enumerable.range = function(start, count) {
  * @param {Number} count - The number of sequential integers to generate.
  */
 function RangeEnumerable(start, count) {
-	LinqUtils.checkNumberArgument(start, 'start');
-	LinqUtils.checkPositiveNumberArgument(count, 'count');
+	LinqAssert.requiredNumber(start, 'start');
+	LinqAssert.requiredPositiveNumber(count, 'count');
 	
 	this._start = +start;
 	this._count = +count;

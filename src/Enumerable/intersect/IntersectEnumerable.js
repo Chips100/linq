@@ -22,8 +22,8 @@ Enumerable.prototype.intersect = function(second, comparer) {
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  */
 function IntersectEnumerable(first, second, comparer) {
-	LinqUtils.checkEnumerableArgument(first, 'first');
-	LinqUtils.checkEnumerableArgument(second, 'second');
+	LinqAssert.requiredEnumerable(first, 'first');
+	LinqAssert.requiredEnumerable(second, 'second');
 	
 	this._first = first;
 	this._second = second;

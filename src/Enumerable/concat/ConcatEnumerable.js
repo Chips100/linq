@@ -20,8 +20,8 @@ Enumerable.prototype.concat = function(second) {
  * @param {Enumerable} second - The sequence to concatenate to the first sequence.
  */
 function ConcatEnumerable(first, second) {
-	LinqUtils.checkEnumerableArgument(first, 'first');
-	LinqUtils.checkEnumerableArgument(second, 'second');
+	LinqAssert.requiredEnumerable(first, 'first');
+	LinqAssert.requiredEnumerable(second, 'second');
 	
 	this._first = first;
 	this._second = second;

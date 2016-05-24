@@ -25,8 +25,8 @@ Enumerable.prototype.selectMany = function(collectionSelector, resultSelector) {
  * @param {Function} [resultSelector] - An optional transform function to apply to each element of the intermediate sequence.
  */
 function SelectManyEnumerable(source, collectionSelector, resultSelector) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
-	LinqUtils.checkFunctionArgument(collectionSelector, 'collectionSelector');
+	LinqAssert.requiredEnumerable(source, 'source');
+	LinqAssert.requiredFunction(collectionSelector, 'collectionSelector');
 	
 	this._source = source;
 	this._collectionSelector = collectionSelector;

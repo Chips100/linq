@@ -20,7 +20,7 @@ Enumerable.prototype.distinct = function(comparer) {
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  */
 function DistinctEnumerable(source, comparer) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
+	LinqAssert.requiredEnumerable(source, 'source');
 	
 	this._source = source;
 	this._comparer = LinqUtils.createEqualityComparer(comparer);

@@ -29,7 +29,7 @@ Enumerable.prototype.last = function(predicate) {
 	}
 	
 	if (!lastMatchSet) {
-		LinqUtils.throwNoMatchingItemError();
+		LinqAssert.throwNoMatchingItemError();
 	}
 	else {
 		return lastMatch;

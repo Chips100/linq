@@ -20,5 +20,5 @@ Enumerable.prototype.first = function(predicate) {
 		}
 	}
 	
-	LinqUtils.throwNoMatchingItemError();
+	LinqAssert.throwNoMatchingItemError();
 };

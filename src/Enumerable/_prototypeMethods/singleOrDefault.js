@@ -22,7 +22,7 @@ Enumerable.prototype.singleOrDefault = function(predicate) {
 				returnValue = current;
 			}
 			else {
-				LinqUtils.throwMultipleMatchingItemsError();
+				LinqAssert.throwMultipleMatchingItemsError();
 			}
 		}
 	}

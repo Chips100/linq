@@ -21,7 +21,7 @@ Enumerable.repeat = function(element, count) {
  * @param {Number} count - The number of times to repeat the value in the generated sequence.
  */
 function RepeatEnumerable(element, count) {
-	LinqUtils.checkPositiveNumberArgument(count, 'count');
+	LinqAssert.requiredPositiveNumber(count, 'count');
 	
 	this._element = element;
 	this._count = count;

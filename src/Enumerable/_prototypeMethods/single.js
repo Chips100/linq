@@ -22,13 +22,13 @@ Enumerable.prototype.single = function(predicate) {
 				returnValue = current;
 			}
 			else {
-				LinqUtils.throwMultipleMatchingItemsError();
+				LinqAssert.throwMultipleMatchingItemsError();
 			}
 		}
 	}
 	
 	if (!returnValueSet) {
-		LinqUtils.throwNoMatchingItemError();
+		LinqAssert.throwNoMatchingItemError();
 	}
 	else {
 		return returnValue;

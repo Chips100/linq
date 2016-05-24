@@ -10,7 +10,7 @@
  * @returns {Boolean} true if the source sequence contains an element that has the specified value; otherwise, false.
  */
 Enumerable.prototype.contains = function(value, comparer) {
-	comparer = LinqUtils.checkOptionalEqualityComparer(comparer);
+	comparer = LinqUtils.createEqualityComparer(comparer);
 	
 	var enumerator = this.getEnumerator(),
 		current;
@@ -18,7 +18,7 @@ Enumerable.prototype.contains = function(value, comparer) {
 	while(enumerator.moveNext()) {
 		current = enumerator.getCurrent();
 		
-		if (comparer.call(current, current, value)) {
+		if (comparer.equals(current, value)) {
 			return true;	
 		}
 	}

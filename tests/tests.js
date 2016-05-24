@@ -377,10 +377,10 @@ test('single on multiple element sequence', function() {
 	}, /No item matched the predicate or sequence was empty/, 'throws error when no element matched predicate');
 	throws(function() {
 		source.single();
-	}, /sequence contained multiple matching elements/, 'throws error when no predicate specified');
+	}, /Multiple items in the sequence matched the predicate./, 'throws error when no predicate specified');
 	throws(function() {
 		source.single(function(x) { return x % 2 === 0; });
-	}, /sequence contained multiple matching elements/, 'throws error when multiple elements matched the predicate');
+	}, /Multiple items in the sequence matched the predicate./, 'throws error when multiple elements matched the predicate');
 	
 	strictEqual(source.single(function(x) { return x === 6; }), 6, 'returns only matching element in sequence');
 });
@@ -415,10 +415,10 @@ test('lastOrDefault on multiple element sequence', function() {
 
 	throws(function() {
 		source.singleOrDefault(function(x) { return x % 2 === 0; });
-	}, /sequence contained multiple matching elements/, 'throws error when multiple elements matched the predicate');
+	}, /Multiple items in the sequence matched the predicate./, 'throws error when multiple elements matched the predicate');
 	throws(function() {
 		source.singleOrDefault();
-	}, /sequence contained multiple matching elements/, 'throws error when no predicate was specified');
+	}, /Multiple items in the sequence matched the predicate./, 'throws error when no predicate was specified');
 
 	strictEqual(source.singleOrDefault(function() { return false; }), null, 'returns default if no element matches predicate');
 	strictEqual(source.singleOrDefault(function(x) { return x === 6; }), 6, 'returns only matching element in sequence');
@@ -487,3 +487,15 @@ test('msdn example pendants', function() {
 	deepEqual(source.distinct(customComparer).toArray(),
 		[{ name: "apple", code: 9 }, { name: "orange", code: 4 }, { name: "lemon", code: 12 }], 'distinct using custom comparer');
 });
+
+module('List#insert');
+test('msdn example pendants', function() {
+	var list = new List(['Mustang', 'Mustang GT', 'Shelby GT500']);
+		
+	list.insert(1, 'Camaro');
+	deepEqual(list.toArray(), ['Mustang', 'Camaro', 'Mustang GT', 'Shelby GT500'], 'insertion of single element');
+	
+	list.insertRange(3, ['Challenger', 'Charger']);
+	deepEqual(list.toArray(), ['Mustang', 'Camaro', 'Mustang GT', 'Challenger', 'Charger', 'Shelby GT500'], 'insertion of multiple element');
+});
+

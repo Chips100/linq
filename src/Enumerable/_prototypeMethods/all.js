@@ -9,7 +9,7 @@
  * @returns {Boolean} true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
  */
 Enumerable.prototype.all = function(predicate) {
-	LinqUtils.checkFunctionArgument(predicate, 'predicate');
+	LinqAssert.requiredFunction(predicate, 'predicate');
 	
 	var enumerator = this.getEnumerator(),
 		current;

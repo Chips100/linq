@@ -20,7 +20,7 @@ Enumerable.prototype.defaultIfEmpty = function(defaultValue) {
  * @param {*} defaultValue - The value to return if the sequence is empty.
  */
 function DefaultIfEmptyEnumerable(source, defaultValue) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
+	LinqAssert.requiredEnumerable(source, 'source');
 	
 	this._source = source;
 	this._defaultValue = defaultValue;

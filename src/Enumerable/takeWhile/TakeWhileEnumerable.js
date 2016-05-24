@@ -21,8 +21,8 @@ Enumerable.prototype.takeWhile = function(predicate) {
  * @param {Function} predicate - A function to test each source element for a condition; the second parameter of the function represents the index of the source element.
  */
 function TakeWhileEnumerable(source, predicate) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
-	LinqUtils.checkFunctionArgument(predicate, 'predicate');
+	LinqAssert.requiredEnumerable(source, 'source');
+	LinqAssert.requiredFunction(predicate, 'predicate');
 	
 	this._source = source;
 	this._predicate = predicate;

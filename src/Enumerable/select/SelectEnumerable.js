@@ -20,8 +20,8 @@ Enumerable.prototype.select = function(selector) {
  * @param {Function} selector - A transform function to apply to each element.
  */
 function SelectEnumerable(source, selector) {
-	LinqUtils.checkEnumerableArgument(source, 'source');
-	LinqUtils.checkFunctionArgument(selector, 'selector');
+	LinqAssert.requiredEnumerable(source, 'source');
+	LinqAssert.requiredFunction(selector, 'selector');
 	
 	this._source = source;
 	this._selector = selector;
