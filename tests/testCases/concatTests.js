@@ -6,7 +6,7 @@ test('Concat should concatenate two sequences.', function () {
 	deepEqual(result, [1, 2, 3, 3, 4, 5], 'Concatenates two sequences.');
 });
 
-test('Concatenate should only evaluate the first source when iterated.', function () {
+test('Concat should only evaluate the first source when iterated.', function () {
 	var source = new ThrowingEnumerable().concat(new List([]));
 	var enumerator = source.getEnumerator();
 
@@ -15,7 +15,7 @@ test('Concatenate should only evaluate the first source when iterated.', functio
 	}, /throwingenumerable/, 'Evaluates first sequence only when iterated.');
 });
 
-test('Concatenate should only evaluate second sequence when first sequence has been iterated over.', function () {
+test('Concat should only evaluate second sequence when first sequence has been iterated over.', function () {
 	var source = new List([1]).concat(new ThrowingEnumerable());
 	var enumerator = source.getEnumerator();
 
