@@ -14,7 +14,7 @@ function List(array) {
         this._array = [];
     }
     else if (LinqUtils.isArray(array)) {
-        this._array = array.splice(0);
+        this._array = array.slice(0);
     }
     else if (LinqUtils.isEnumerable(array)) {
         this._array = array.toArray();
