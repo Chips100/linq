@@ -8,17 +8,17 @@
  * @param {Function} [predicate] - A function to test each element for a condition. If omitted, the first item from the sequence is used.
  * @returns {*} null if source is empty or if no element passes the test specified by predicate; otherwise, the first element in source that passes the test specified by predicate.
  */
-Enumerable.prototype.firstOrDefault = function(predicate) {
+Enumerable.prototype.firstOrDefault = function (predicate) {
 	var enumerator = this.getEnumerator(),
 		current;
-		
-	while(enumerator.moveNext()) {
+
+	while (enumerator.moveNext()) {
 		current = enumerator.getCurrent();
-		
+
 		if (!LinqUtils.isFunction(predicate) || predicate.call(current, current)) {
 			return current;
 		}
 	}
-	
+
 	return null;
 };

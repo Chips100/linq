@@ -15,7 +15,7 @@ function UnionEnumerator(first, second, comparer) {
 	this._firstEnumerator = first.getEnumerator();
 	this._secondEnumerator = second.getEnumerator();
 	this._comparer = comparer;
-	
+
 	this.reset();
 }
 
@@ -23,7 +23,7 @@ function UnionEnumerator(first, second, comparer) {
  * Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
-UnionEnumerator.prototype.getCurrent = function() {
+UnionEnumerator.prototype.getCurrent = function () {
 	if (this._isFirstActive) {
 		return this._firstEnumerator.getCurrent();
 	}
@@ -36,11 +36,11 @@ UnionEnumerator.prototype.getCurrent = function() {
  * Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
-UnionEnumerator.prototype.moveNext = function() {	
+UnionEnumerator.prototype.moveNext = function () {
 	var current,
 		foundItem = false,
 		currentHash;
-	
+
 	if (this._isFirstActive) {
 		if (this._firstEnumerator.moveNext()) {
 			foundItem = true;
@@ -58,11 +58,11 @@ UnionEnumerator.prototype.moveNext = function() {
 			current = this._secondEnumerator.getCurrent();
 		}
 	}
-	
+
 	if (foundItem) {
 		// We found another item. Make sure it has not already been yielded.
 		currentHash = this._comparer.getHashCode(current);
-		
+
 		if (!this._seenElements[currentHash]) {
 			this._seenElements[currentHash] = [current];
 			return true;
@@ -73,7 +73,7 @@ UnionEnumerator.prototype.moveNext = function() {
 					return this.moveNext();
 				}
 			}
-			
+
 			this._seenElements[currentHash].push(current);
 			return true;
 		}
@@ -86,7 +86,7 @@ UnionEnumerator.prototype.moveNext = function() {
 /** @this UnionEnumerator 
  * Sets the enumerator to its initial position, which is before the first element in the collection.
  */
-UnionEnumerator.prototype.reset = function() {
+UnionEnumerator.prototype.reset = function () {
 	this._firstEnumerator.reset();
 	this._secondEnumerator.reset();
 	this._isFirstActive = true;

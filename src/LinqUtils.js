@@ -3,15 +3,15 @@
  * @author Chips100
  * @todo At least some functionality should be extracted into a LinqAssert helper for better semantics.
  */
-var LinqUtils = {   
+var LinqUtils = {
   /** 
    * Creates an Enumerable from the specified value. 
    * If the input is not suitable to be converted to an Enumerable, an exception is thrown.
    * @param {Array|Enumerable} input - The value to convert to an Enumerable.
    * @param {String} parameterName - The name of the parameter by which the Enumerable should have been supplied.
    * @returns {Enumerable} The specified equality comparer function if supplied correctly, otherwise false.
-   */ 
-  createEnumerable: function(input, parameterName) {
+   */
+  createEnumerable: function (input, parameterName) {
     if (this.isEnumerable(input)) {
       return input;
     }
@@ -23,7 +23,7 @@ var LinqUtils = {
       this.throwArgumentError(parameterName);
     }
   },
-  
+
   /** 
    * Creates an equality comparer with implementations of equals and getHashCode by the specified value.
    * If the value is a function, it will be used as the equals implementation.
@@ -32,7 +32,7 @@ var LinqUtils = {
    * @param {Function|Object} [comparer] - The value to create the equality comparer from.
    * @returns {Function} The specified equality comparer function if supplied correctly, otherwise false.
    */
-  createEqualityComparer: function(comparer) {
+  createEqualityComparer: function (comparer) {
     if (comparer && this.isFunction(comparer.equals)) {
       // Comparer provided in a correct format.
       // Return the original object, as it might rely on its this binding.
@@ -46,47 +46,47 @@ var LinqUtils = {
         getHashCode: defaultGetHashCodeFunction
       };
     }
-    
+
     function defaultGetHashCodeFunction(arg) {
       return 1;
     }
   },
-  
+
   /** 
    * Default equality comparer function that checks two arguments for equality.
    * @param {any} [a] - The first value that should be checked for equality.
    * @param {any} [b] - The second value that should be checked for equality.
    * @returns {Boolean} True, if the arguments are equal, otherwise false.
    */
-  defaultEqualityComparer: function(a, b) {
-    return a === b;  
+  defaultEqualityComparer: function (a, b) {
+    return a === b;
   },
-        
+
   /** 
    * Determines if the specified value is an array.
    * @param {any} [input] - Value that could be an array.
    * @returns {Boolean} True, if the specified value is an array; otherwise false.
    */
-  isArray: function(input) {
+  isArray: function (input) {
     // http://stackoverflow.com/questions/4775722/check-if-object-is-array
     return Object.prototype.toString.call(input) === '[object Array]';
   },
-    
+
   /** 
    * Determines if the specified value is a sequence.
    * @param {any} [input] - Value that could be a sequence.
    * @returns {Boolean} True, if the specified value is a sequence; otherwise false.
    */
-  isEnumerable: function(input) {
+  isEnumerable: function (input) {
     return input instanceof Enumerable;
   },
-    
+
   /** 
    * Determines if the specified value is a function.
    * @param {any} [input] - Value that could be a function.
    * @returns {Boolean} True, if the specified value is a function; otherwise false.
    */
-  isFunction: function(input) {
-    return typeof(input) === 'function';
+  isFunction: function (input) {
+    return typeof (input) === 'function';
   }
 };

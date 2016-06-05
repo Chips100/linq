@@ -9,7 +9,7 @@
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  * @returns {Enumerable} A sequence that contains the elements that form the set intersection of two sequences.
  */
-Enumerable.prototype.intersect = function(second, comparer) {
+Enumerable.prototype.intersect = function (second, comparer) {
 	return new IntersectEnumerable(this, second, comparer);
 };
 
@@ -24,7 +24,7 @@ Enumerable.prototype.intersect = function(second, comparer) {
 function IntersectEnumerable(first, second, comparer) {
 	LinqAssert.requiredEnumerable(first, 'first');
 	LinqAssert.requiredEnumerable(second, 'second');
-	
+
 	this._first = first;
 	this._second = second;
 	this._comparer = LinqUtils.createEqualityComparer(comparer);
@@ -38,6 +38,6 @@ IntersectEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-IntersectEnumerable.prototype.getEnumerator = function() {
+IntersectEnumerable.prototype.getEnumerator = function () {
 	return new IntersectEnumerator(this._first, this._second, this._comparer);
 };

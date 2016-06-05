@@ -9,19 +9,19 @@
  * @param {Function} [comparer] - An equality comparer to compare values. If ommited, equality is checked by strict equality.
  * @returns {Boolean} true if the source sequence contains an element that has the specified value; otherwise, false.
  */
-Enumerable.prototype.contains = function(value, comparer) {
+Enumerable.prototype.contains = function (value, comparer) {
 	comparer = LinqUtils.createEqualityComparer(comparer);
-	
+
 	var enumerator = this.getEnumerator(),
 		current;
-	
-	while(enumerator.moveNext()) {
+
+	while (enumerator.moveNext()) {
 		current = enumerator.getCurrent();
-		
+
 		if (comparer.equals(current, value)) {
-			return true;	
+			return true;
 		}
 	}
-	
+
 	return false;
 };

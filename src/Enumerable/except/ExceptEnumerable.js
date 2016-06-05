@@ -9,7 +9,7 @@
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  * @returns {Enumerable} A sequence that contains the set difference of the elements of two sequences.
  */
-Enumerable.prototype.except = function(second, comparer) {
+Enumerable.prototype.except = function (second, comparer) {
 	return new ExceptEnumerable(this, second, comparer);
 };
 
@@ -24,7 +24,7 @@ Enumerable.prototype.except = function(second, comparer) {
 function ExceptEnumerable(first, second, comparer) {
 	LinqAssert.requiredEnumerable(first, 'first');
 	LinqAssert.requiredEnumerable(second, 'second');
-	
+
 	this._first = first;
 	this._second = second;
 	this._comparer = LinqUtils.createEqualityComparer(comparer);
@@ -38,6 +38,6 @@ ExceptEnumerable.prototype = Object.create(Enumerable);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-ExceptEnumerable.prototype.getEnumerator = function() {
+ExceptEnumerable.prototype.getEnumerator = function () {
 	return new ExceptEnumerator(this._first, this._second, this._comparer);
 };

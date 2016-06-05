@@ -8,7 +8,7 @@
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  * @returns {Enumerable} An Enumerable that contains distinct elements from the source sequence.
  */
-Enumerable.prototype.distinct = function(comparer) {
+Enumerable.prototype.distinct = function (comparer) {
 	return new DistinctEnumerable(this, comparer);
 };
 
@@ -21,7 +21,7 @@ Enumerable.prototype.distinct = function(comparer) {
  */
 function DistinctEnumerable(source, comparer) {
 	LinqAssert.requiredEnumerable(source, 'source');
-	
+
 	this._source = source;
 	this._comparer = LinqUtils.createEqualityComparer(comparer);
 }
@@ -34,6 +34,6 @@ DistinctEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-DistinctEnumerable.prototype.getEnumerator = function() {
+DistinctEnumerable.prototype.getEnumerator = function () {
 	return new DistinctEnumerator(this._source, this._comparer);
 };

@@ -19,7 +19,7 @@ function DefaultIfEmptyEnumerator(source, defaultValue) {
  * Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
-DefaultIfEmptyEnumerator.prototype.getCurrent = function() {
+DefaultIfEmptyEnumerator.prototype.getCurrent = function () {
 	if (this._useSource) {
 		return this._enumerator.getCurrent();
 	}
@@ -32,7 +32,7 @@ DefaultIfEmptyEnumerator.prototype.getCurrent = function() {
  * Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
-DefaultIfEmptyEnumerator.prototype.moveNext = function() {
+DefaultIfEmptyEnumerator.prototype.moveNext = function () {
 	if (!this._useSource && !this._useDefault) {
 		this._useSource = this._enumerator.moveNext();
 		this._useDefault = !this._useSource;
@@ -49,7 +49,7 @@ DefaultIfEmptyEnumerator.prototype.moveNext = function() {
 /** @this DefaultIfEmptyEnumerator 
  * Sets the enumerator to its initial position, which is before the first element in the collection.
  */
-DefaultIfEmptyEnumerator.prototype.reset = function() {
+DefaultIfEmptyEnumerator.prototype.reset = function () {
 	this._useSource = false;
 	this._useDefault = false;
 	this._enumerator.reset();

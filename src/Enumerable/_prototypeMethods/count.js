@@ -8,18 +8,18 @@
  * @param {Function} [predicate] - A function to test each element for a condition. If omitted, all items are counted.
  * @returns {Number} A number that represents how many elements in the sequence satisfy the condition in the predicate function.
  */
-Enumerable.prototype.count = function(predicate) {
+Enumerable.prototype.count = function (predicate) {
 	var counter = 0,
 		current,
 		enumerator = this.getEnumerator();
-		
-	while(enumerator.moveNext()) {
+
+	while (enumerator.moveNext()) {
 		current = enumerator.getCurrent();
-		
+
 		if (!LinqUtils.isFunction(predicate) || predicate.call(current, current)) {
 			counter++;
 		}
 	}
-	
+
 	return counter;
 };

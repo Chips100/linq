@@ -9,7 +9,7 @@
  * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
  * @returns {Enumerable} An Enumerable that contains the elements from both input sequences, excluding duplicates.
  */
-Enumerable.prototype.union = function(second, comparer) {
+Enumerable.prototype.union = function (second, comparer) {
 	return new UnionEnumerable(this, second, comparer);
 };
 
@@ -24,10 +24,10 @@ Enumerable.prototype.union = function(second, comparer) {
 function UnionEnumerable(first, second, comparer) {
 	LinqAssert.requiredEnumerable(first, 'first');
 	LinqAssert.requiredEnumerable(second, 'second');
-	
+
 	this._first = first;
 	this._second = second;
-	this._comparer = comparer;	
+	this._comparer = comparer;
 }
 
 // Put the Enumerable prototype into the prototype chain.
@@ -38,6 +38,6 @@ UnionEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-UnionEnumerable.prototype.getEnumerator = function() {
+UnionEnumerable.prototype.getEnumerator = function () {
 	return new UnionEnumerator(this._first, this._second, this._comparer);
 };

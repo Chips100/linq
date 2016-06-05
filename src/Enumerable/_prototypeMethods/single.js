@@ -8,16 +8,16 @@
  * @param {Function} [predicate] - A function to test an element for a condition. If omitted, the only item is used.
  * @returns {*} The single element of the input sequence that satisfies a condition.
  */
-Enumerable.prototype.single = function(predicate) {
+Enumerable.prototype.single = function (predicate) {
 	var enumerator = this.getEnumerator(),
 		current,
 		returnValueSet = false,
 		returnValue;
-		
-	while(enumerator.moveNext()) {
+
+	while (enumerator.moveNext()) {
 		current = enumerator.getCurrent();
 		if (!LinqUtils.isFunction(predicate) || predicate.call(current, current)) {
-			if(!returnValueSet) {
+			if (!returnValueSet) {
 				returnValueSet = true;
 				returnValue = current;
 			}
@@ -26,7 +26,7 @@ Enumerable.prototype.single = function(predicate) {
 			}
 		}
 	}
-	
+
 	if (!returnValueSet) {
 		LinqAssert.throwNoMatchingItemError();
 	}

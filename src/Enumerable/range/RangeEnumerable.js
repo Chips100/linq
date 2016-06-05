@@ -9,7 +9,7 @@
  * @param {Number} count - The number of sequential integers to generate.
  * @returns {Enumerable} An Enumerable that contains a range of sequential integral numbers.
  */
-Enumerable.range = function(start, count) {
+Enumerable.range = function (start, count) {
 	return new RangeEnumerable(start, count);
 };
 
@@ -23,7 +23,7 @@ Enumerable.range = function(start, count) {
 function RangeEnumerable(start, count) {
 	LinqAssert.requiredNumber(start, 'start');
 	LinqAssert.requiredPositiveNumber(count, 'count');
-	
+
 	this._start = +start;
 	this._count = +count;
 }
@@ -36,6 +36,6 @@ RangeEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-RangeEnumerable.prototype.getEnumerator = function() {
+RangeEnumerable.prototype.getEnumerator = function () {
 	return new RangeEnumerator(this._start, this._count);
 };

@@ -8,7 +8,7 @@
  * @param {*} defaultValue - The value to return if the sequence is empty.
  * @returns {Enumerable} An Enumerable that contains defaultValue if the current sequence is empty; otherwise, the current sequence.
  */
-Enumerable.prototype.defaultIfEmpty = function(defaultValue) {
+Enumerable.prototype.defaultIfEmpty = function (defaultValue) {
 	return new DefaultIfEmptyEnumerable(this, defaultValue);
 };
 
@@ -21,7 +21,7 @@ Enumerable.prototype.defaultIfEmpty = function(defaultValue) {
  */
 function DefaultIfEmptyEnumerable(source, defaultValue) {
 	LinqAssert.requiredEnumerable(source, 'source');
-	
+
 	this._source = source;
 	this._defaultValue = defaultValue;
 }
@@ -34,6 +34,6 @@ DefaultIfEmptyEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-DefaultIfEmptyEnumerable.prototype.getEnumerator = function() {
+DefaultIfEmptyEnumerable.prototype.getEnumerator = function () {
 	return new DefaultIfEmptyEnumerator(this._source, this._defaultValue);
 };

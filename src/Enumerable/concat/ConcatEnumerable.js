@@ -8,7 +8,7 @@
  * @param {Enumerable} second - The sequence to concatenate to this sequence.
  * @returns {Enumerable} An Enumerable that contains the concatenated elements of the two input sequences.
  */
-Enumerable.prototype.concat = function(second) {
+Enumerable.prototype.concat = function (second) {
 	return new ConcatEnumerable(this, second);
 };
 
@@ -22,7 +22,7 @@ Enumerable.prototype.concat = function(second) {
 function ConcatEnumerable(first, second) {
 	LinqAssert.requiredEnumerable(first, 'first');
 	LinqAssert.requiredEnumerable(second, 'second');
-	
+
 	this._first = first;
 	this._second = second;
 }
@@ -35,6 +35,6 @@ ConcatEnumerable.prototype = Object.create(Enumerable.prototype);
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */
-ConcatEnumerable.prototype.getEnumerator = function() {
+ConcatEnumerable.prototype.getEnumerator = function () {
 	return new ConcatEnumerator(this._first, this._second);
 };

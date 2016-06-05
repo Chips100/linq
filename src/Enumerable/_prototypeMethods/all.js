@@ -8,19 +8,19 @@
  * @param {Function} predicate - A function to test each element for a condition.
  * @returns {Boolean} true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
  */
-Enumerable.prototype.all = function(predicate) {
+Enumerable.prototype.all = function (predicate) {
 	LinqAssert.requiredFunction(predicate, 'predicate');
-	
+
 	var enumerator = this.getEnumerator(),
 		current;
-	
-	while(enumerator.moveNext()) {
+
+	while (enumerator.moveNext()) {
 		current = enumerator.getCurrent();
-		
+
 		if (!predicate.call(current, current)) {
 			return false;
 		}
 	}
-	
+
 	return true;
 };

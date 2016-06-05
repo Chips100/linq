@@ -13,7 +13,7 @@
 function DistinctEnumerator(source, comparer) {
 	this._enumerator = source.getEnumerator();
 	this._comparer = comparer;
-	
+
 	this.reset();
 }
 
@@ -21,7 +21,7 @@ function DistinctEnumerator(source, comparer) {
  * Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
-DistinctEnumerator.prototype.getCurrent = function() {
+DistinctEnumerator.prototype.getCurrent = function () {
 	return this._enumerator.getCurrent();
 };
 
@@ -29,15 +29,15 @@ DistinctEnumerator.prototype.getCurrent = function() {
  * Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
-DistinctEnumerator.prototype.moveNext = function() {
+DistinctEnumerator.prototype.moveNext = function () {
 	var current,
 		currentHash,
 		possibleDuplicate;
-	
+
 	if (this._enumerator.moveNext()) {
 		current = this._enumerator.getCurrent();
 		currentHash = this._comparer.getHashCode(current);
-		
+
 		if (!this._seenElements[currentHash]) {
 			this._seenElements[currentHash] = [current];
 			return true;
@@ -48,7 +48,7 @@ DistinctEnumerator.prototype.moveNext = function() {
 					return this.moveNext();
 				}
 			}
-			
+
 			this._seenElements[currentHash].push(current);
 			return true;
 		}
@@ -61,7 +61,7 @@ DistinctEnumerator.prototype.moveNext = function() {
 /** @this DistinctEnumerator 
  * Sets the enumerator to its initial position, which is before the first element in the collection.
  */
-DistinctEnumerator.prototype.reset = function() {
+DistinctEnumerator.prototype.reset = function () {
 	this._seenElements = {};
 	this._enumerator.reset();
 };

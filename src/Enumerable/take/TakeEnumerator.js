@@ -20,7 +20,7 @@ function TakeEnumerator(source, number) {
  * Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
-TakeEnumerator.prototype.getCurrent = function() {
+TakeEnumerator.prototype.getCurrent = function () {
 	return this._enumerator.getCurrent();
 };
 
@@ -28,14 +28,14 @@ TakeEnumerator.prototype.getCurrent = function() {
  * Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
-TakeEnumerator.prototype.moveNext = function() {
+TakeEnumerator.prototype.moveNext = function () {
 	return this._count++ < this._number && this._enumerator.moveNext();
 };
 
 /** @this TakeEnumerator 
  * Sets the enumerator to its initial position, which is before the first element in the collection.
  */
-TakeEnumerator.prototype.reset = function() {
+TakeEnumerator.prototype.reset = function () {
 	this._enumerator.reset();
 	this._count = 0;
 };

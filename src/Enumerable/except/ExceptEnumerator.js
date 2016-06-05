@@ -15,7 +15,7 @@ function ExceptEnumerator(first, second, comparer) {
 	this._firstEnumerator = first.getEnumerator();
 	this._secondEnumerator = second.getEnumerator();
 	this._comparer = comparer;
-	
+
 	this.reset();
 }
 
@@ -23,7 +23,7 @@ function ExceptEnumerator(first, second, comparer) {
  * Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
-ExceptEnumerator.prototype.getCurrent = function() {
+ExceptEnumerator.prototype.getCurrent = function () {
 	return this._firstEnumerator.getCurrent();
 };
 
@@ -31,30 +31,30 @@ ExceptEnumerator.prototype.getCurrent = function() {
  * Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
-ExceptEnumerator.prototype.moveNext = function() {
+ExceptEnumerator.prototype.moveNext = function () {
 	var current,
 		currentHash;
-	
+
 	if (!this._hasScannedSecond) {
-		while(this._secondEnumerator.moveNext()) {
+		while (this._secondEnumerator.moveNext()) {
 			current = this._secondEnumerator.getCurrent();
 			currentHash = this._comparer.getHashCode(current);
-		
+
 			if (!this._bannedElements[currentHash]) {
-				this._bannedElements[currentHash] = [current];	
+				this._bannedElements[currentHash] = [current];
 			}
 			else {
 				this._bannedElements[currentHash].push(current);
 			}
-		}		
-		
+		}
+
 		this._hasScannedSecond = true;
 	}
-	
+
 	if (this._firstEnumerator.moveNext()) {
 		current = this._firstEnumerator.getCurrent();
 		currentHash = this._comparer.getHashCode(current);
-		
+
 		if (!this._bannedElements[currentHash]) {
 			this._bannedElements[currentHash] = [current];
 			return true;
@@ -65,7 +65,7 @@ ExceptEnumerator.prototype.moveNext = function() {
 					return this.moveNext();
 				}
 			}
-			
+
 			this._bannedElements[currentHash].push(current);
 			return true;
 		}
@@ -78,7 +78,7 @@ ExceptEnumerator.prototype.moveNext = function() {
 /** @this ExceptEnumerator 
  * Sets the enumerator to its initial position, which is before the first element in the collection.
  */
-ExceptEnumerator.prototype.reset = function() {
+ExceptEnumerator.prototype.reset = function () {
 	this._firstEnumerator.reset();
 	this._secondEnumerator.reset();
 	this._hasScannedSecond = false;
