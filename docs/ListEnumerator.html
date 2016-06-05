@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: UnionEnumerator</title>
+    <title>JSDoc: Class: ListEnumerator</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: UnionEnumerator</h1>
+    <h1 class="page-title">Class: ListEnumerator</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>UnionEnumerator</h2>
+        <h2>ListEnumerator</h2>
         
     
 </header>
@@ -40,14 +40,14 @@
 
     
 
-    <h4 class="name" id="UnionEnumerator"><span class="type-signature"></span>new UnionEnumerator<span class="signature">(first, second, comparer)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ListEnumerator"><span class="type-signature"></span>new ListEnumerator<span class="signature">(array<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Represents an Enumerator used to iterate through a collection created by a union operation.
+    Represents an Enumerator used to iterate through an instance of List.
 </div>
 
 
@@ -71,6 +71,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -83,72 +85,33 @@
 
         <tr>
             
-                <td class="name"><code>first</code></td>
+                <td class="name"><code>array</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+<span class="param-type">Array</span>
 
 
             
             </td>
 
             
-
-            
-
-            <td class="description last">An Enumerable whose distinct elements form the first set for the union.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>second</code></td>
-            
-
-            <td class="type">
-            
+                <td class="attributes">
                 
-<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">An Enumerable whose distinct elements form the second set for the union.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>comparer</code></td>
-            
-
-            <td class="type">
-            
+                    &lt;optional><br>
                 
-<span class="param-type">function</span>
-|
 
-<span class="param-type"><a href="global.html#EqualityComparer">EqualityComparer</a></span>
+                
 
-
-            
-            </td>
-
+                
+                </td>
             
 
             
 
-            <td class="description last">A function or an EqualityComparer to compare values for equality.</td>
+            <td class="description last">An array that served as the storage for the List that should be iterated.</td>
         </tr>
 
     
@@ -189,7 +152,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_union_UnionEnumerator.js.html">Enumerable/union/UnionEnumerator.js</a>, <a href="Enumerable_union_UnionEnumerator.js.html#line14">line 14</a>
+        <a href="List_ListEnumerator.js.html">List/ListEnumerator.js</a>, <a href="List_ListEnumerator.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -262,7 +225,7 @@
 
 
     <h5>This:</h5>
-    <ul><li><a href="UnionEnumerator.html">UnionEnumerator</a></li></ul>
+    <ul><li><a href="ListEnumerator.html">ListEnumerator</a></li></ul>
 
 
 
@@ -299,7 +262,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_union_UnionEnumerator.js.html">Enumerable/union/UnionEnumerator.js</a>, <a href="Enumerable_union_UnionEnumerator.js.html#line26">line 26</a>
+        <a href="List_ListEnumerator.js.html">List/ListEnumerator.js</a>, <a href="List_ListEnumerator.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -365,7 +328,7 @@
 
 
     <h5>This:</h5>
-    <ul><li><a href="UnionEnumerator.html">UnionEnumerator</a></li></ul>
+    <ul><li><a href="ListEnumerator.html">ListEnumerator</a></li></ul>
 
 
 
@@ -402,7 +365,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_union_UnionEnumerator.js.html">Enumerable/union/UnionEnumerator.js</a>, <a href="Enumerable_union_UnionEnumerator.js.html#line39">line 39</a>
+        <a href="List_ListEnumerator.js.html">List/ListEnumerator.js</a>, <a href="List_ListEnumerator.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -468,7 +431,7 @@
 
 
     <h5>This:</h5>
-    <ul><li><a href="UnionEnumerator.html">UnionEnumerator</a></li></ul>
+    <ul><li><a href="ListEnumerator.html">ListEnumerator</a></li></ul>
 
 
 
@@ -505,7 +468,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_union_UnionEnumerator.js.html">Enumerable/union/UnionEnumerator.js</a>, <a href="Enumerable_union_UnionEnumerator.js.html#line89">line 89</a>
+        <a href="List_ListEnumerator.js.html">List/ListEnumerator.js</a>, <a href="List_ListEnumerator.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -553,7 +516,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jun 05 2016 21:07:37 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jun 05 2016 21:07:36 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -12,21 +12,18 @@
  */
 
 /**
- * @name MoveNextFunction
- * @function
- * Advances the enumerator to the next element of the collection.
+ * @function MoveNextFunction
+ * @desc Advances the enumerator to the next element of the collection.
  * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
  */
 		
 /**
- * @name GetCurrentFunction
- * @function
- * Gets the current element in the collection.
+ * @function GetCurrentFunction
+ * @desc Gets the current element in the collection.
  * @returns {*} The current element in the collection.
  */
 		
 /**
- * @name ResetFunction
- * @function
- * Sets the enumerator to its initial position, which is before the first element in the collection.
+ * @function ResetFunction
+ * @desc Sets the enumerator to its initial position, which is before the first element in the collection.
  */

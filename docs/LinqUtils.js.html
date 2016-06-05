@@ -31,15 +31,15 @@
  * @author Chips100
  * @todo At least some functionality should be extracted into a LinqAssert helper for better semantics.
  */
-var LinqUtils = {   
+var LinqUtils = {
   /** 
    * Creates an Enumerable from the specified value. 
    * If the input is not suitable to be converted to an Enumerable, an exception is thrown.
    * @param {Array|Enumerable} input - The value to convert to an Enumerable.
    * @param {String} parameterName - The name of the parameter by which the Enumerable should have been supplied.
    * @returns {Enumerable} The specified equality comparer function if supplied correctly, otherwise false.
-   */ 
-  createEnumerable: function(input, parameterName) {
+   */
+  createEnumerable: function (input, parameterName) {
     if (this.isEnumerable(input)) {
       return input;
     }
@@ -51,7 +51,7 @@ var LinqUtils = {
       this.throwArgumentError(parameterName);
     }
   },
-  
+
   /** 
    * Creates an equality comparer with implementations of equals and getHashCode by the specified value.
    * If the value is a function, it will be used as the equals implementation.
@@ -60,7 +60,7 @@ var LinqUtils = {
    * @param {Function|Object} [comparer] - The value to create the equality comparer from.
    * @returns {Function} The specified equality comparer function if supplied correctly, otherwise false.
    */
-  createEqualityComparer: function(comparer) {
+  createEqualityComparer: function (comparer) {
     if (comparer &amp;&amp; this.isFunction(comparer.equals)) {
       // Comparer provided in a correct format.
       // Return the original object, as it might rely on its this binding.
@@ -74,48 +74,48 @@ var LinqUtils = {
         getHashCode: defaultGetHashCodeFunction
       };
     }
-    
+
     function defaultGetHashCodeFunction(arg) {
       return 1;
     }
   },
-  
+
   /** 
    * Default equality comparer function that checks two arguments for equality.
    * @param {any} [a] - The first value that should be checked for equality.
    * @param {any} [b] - The second value that should be checked for equality.
    * @returns {Boolean} True, if the arguments are equal, otherwise false.
    */
-  defaultEqualityComparer: function(a, b) {
-    return a === b;  
+  defaultEqualityComparer: function (a, b) {
+    return a === b;
   },
-        
+
   /** 
    * Determines if the specified value is an array.
    * @param {any} [input] - Value that could be an array.
    * @returns {Boolean} True, if the specified value is an array; otherwise false.
    */
-  isArray: function(input) {
+  isArray: function (input) {
     // http://stackoverflow.com/questions/4775722/check-if-object-is-array
     return Object.prototype.toString.call(input) === '[object Array]';
   },
-    
+
   /** 
    * Determines if the specified value is a sequence.
    * @param {any} [input] - Value that could be a sequence.
    * @returns {Boolean} True, if the specified value is a sequence; otherwise false.
    */
-  isEnumerable: function(input) {
+  isEnumerable: function (input) {
     return input instanceof Enumerable;
   },
-    
+
   /** 
    * Determines if the specified value is a function.
    * @param {any} [input] - Value that could be a function.
    * @returns {Boolean} True, if the specified value is a function; otherwise false.
    */
-  isFunction: function(input) {
-    return typeof(input) === 'function';
+  isFunction: function (input) {
+    return typeof (input) === 'function';
   }
 };</code></pre>
         </article>
@@ -127,13 +127,13 @@ var LinqUtils = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Advancestheenumeratortothenextelementofthecollection.">Advances the enumerator to the next element of the collection.</a></li><li><a href="global.html#Calculatesahashcodeforthespecifiedvaluetousefordatastructuresandalgorithms.">Calculates a hash code for the specified value to use for data structures and algorithms.</a></li><li><a href="global.html#Determineswhethertwovaluesareequal.">Determines whether two values are equal.</a></li><li><a href="global.html#Getsthecurrentelementinthecollection.">Gets the current element in the collection.</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue May 24 2016 10:47:26 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jun 05 2016 21:07:35 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>
