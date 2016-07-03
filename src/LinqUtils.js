@@ -20,7 +20,7 @@ var LinqUtils = {
       return new List(input);
     }
     else {
-      this.throwArgumentError(parameterName);
+      LinqAssert.throwArgumentError(parameterName);
     }
   },
 
@@ -53,9 +53,19 @@ var LinqUtils = {
   },
 
   /** 
+   * Creates a selector function by the specfied value.
+   * If the value is a valid selector function, it will be returned; otherwise a default selector function will be returned.
+   * @param {Function} [selector] - The selector function that should be used if it is a valid selector function.
+   * @returns {Function} Selector function that can be used to project elements.
+   */
+  createSelectorFunction: function(selector) {
+    return this.isFunction(selector) ? selector : this.defaultSelectorFunction;
+  },
+
+  /** 
    * Default equality comparer function that checks two arguments for equality.
-   * @param {any} [a] - The first value that should be checked for equality.
-   * @param {any} [b] - The second value that should be checked for equality.
+   * @param {*} [a] - The first value that should be checked for equality.
+   * @param {*} [b] - The second value that should be checked for equality.
    * @returns {Boolean} True, if the arguments are equal, otherwise false.
    */
   defaultEqualityComparer: function (a, b) {
@@ -63,8 +73,17 @@ var LinqUtils = {
   },
 
   /** 
+   * Default selector function to use when elements should be projected.
+   * @param {*} [x] - The value to project.
+   * @returns {*} The projected value.
+   */
+  defaultSelectorFunction: function(x) {
+    return x;
+  },
+
+  /** 
    * Determines if the specified value is an array.
-   * @param {any} [input] - Value that could be an array.
+   * @param {*} [input] - Value that could be an array.
    * @returns {Boolean} True, if the specified value is an array; otherwise false.
    */
   isArray: function (input) {
@@ -74,7 +93,7 @@ var LinqUtils = {
 
   /** 
    * Determines if the specified value is a sequence.
-   * @param {any} [input] - Value that could be a sequence.
+   * @param {*} [input] - Value that could be a sequence.
    * @returns {Boolean} True, if the specified value is a sequence; otherwise false.
    */
   isEnumerable: function (input) {
@@ -83,7 +102,7 @@ var LinqUtils = {
 
   /** 
    * Determines if the specified value is a function.
-   * @param {any} [input] - Value that could be a function.
+   * @param {*} [input] - Value that could be a function.
    * @returns {Boolean} True, if the specified value is a function; otherwise false.
    */
   isFunction: function (input) {

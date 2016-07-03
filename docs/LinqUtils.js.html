@@ -82,8 +82,8 @@ var LinqUtils = {
 
   /** 
    * Default equality comparer function that checks two arguments for equality.
-   * @param {any} [a] - The first value that should be checked for equality.
-   * @param {any} [b] - The second value that should be checked for equality.
+   * @param {*} [a] - The first value that should be checked for equality.
+   * @param {*} [b] - The second value that should be checked for equality.
    * @returns {Boolean} True, if the arguments are equal, otherwise false.
    */
   defaultEqualityComparer: function (a, b) {
@@ -92,7 +92,7 @@ var LinqUtils = {
 
   /** 
    * Determines if the specified value is an array.
-   * @param {any} [input] - Value that could be an array.
+   * @param {*} [input] - Value that could be an array.
    * @returns {Boolean} True, if the specified value is an array; otherwise false.
    */
   isArray: function (input) {
@@ -102,7 +102,7 @@ var LinqUtils = {
 
   /** 
    * Determines if the specified value is a sequence.
-   * @param {any} [input] - Value that could be a sequence.
+   * @param {*} [input] - Value that could be a sequence.
    * @returns {Boolean} True, if the specified value is a sequence; otherwise false.
    */
   isEnumerable: function (input) {
@@ -111,7 +111,7 @@ var LinqUtils = {
 
   /** 
    * Determines if the specified value is a function.
-   * @param {any} [input] - Value that could be a function.
+   * @param {*} [input] - Value that could be a function.
    * @returns {Boolean} True, if the specified value is a function; otherwise false.
    */
   isFunction: function (input) {

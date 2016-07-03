@@ -121,7 +121,7 @@ List.prototype.count = function(predicate) {
  * @returns {*} The element at the specified position in the source sequence.
  */
 List.prototype.elementAt = function(index) {
-    return this._array[i];
+    return this._array[index];
 }
 
 /** @this List
