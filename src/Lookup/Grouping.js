@@ -13,24 +13,24 @@ function Grouping(key) {
     this._elements.key = key;
 }
 
-/** @this Grouping
- * Adds the specified element to this Grouping.
+/** Adds the specified element to this Grouping.
+ * @this Grouping
  * @param {*} element - The element to add to this grouping.
  */
 Grouping.prototype.addElement = function(element) {
     this._elements.add(element);
 };
 
-/** @this Grouping
- * Gets the elements of this Grouping.
+/** Gets the elements of this Grouping.
+ * @this Grouping
  * @returns {Enumerable} A sequence with the elements of this Grouping.
  */
 Grouping.prototype.getElements = function() {
     return this._elements;
 };
 
-/** @this Grouping
- * Gets the key that the elements in this grouping are associated with.
+/** Gets the key that the elements in this grouping are associated with.
+ * @this Grouping
  * @returns {*} The key that the elements in this grouping are associated with.
  */
 Grouping.prototype.getKey = function() {

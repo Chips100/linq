@@ -31,8 +31,7 @@
  * @author Chips100
  */
 var LinqAssert = {
-  /**
-   * Throws an error if the specified value is not a sequence.
+  /** Throws an error if the specified value is not a sequence.
    * @param {*} value - The value that should be a sequence.
    * @param {String} parameterName - The name of the parameter by which the sequence should have been supplied.
    */
@@ -42,8 +41,7 @@ var LinqAssert = {
     }
   },
   
-  /**
-   * Throws an error if the specified value is not a function.
+  /** Throws an error if the specified value is not a function.
    * @param {*} value - The value that should be a function.
    * @param {String} parameterName - The name of the parameter by which the function should have been supplied.
    */
@@ -53,8 +51,7 @@ var LinqAssert = {
     }  
   },
   
-  /** 
-   * Throws an error if the specified value is not a number or does not fulfill the specified constraints.
+  /** Throws an error if the specified value is not a number or does not fulfill the specified constraints.
    * @param {*} value - The value that should be a number fulfilling the specified constraints.
    * @param {String} parameterName - The name of the parameter by which the function should have been supplied.
    * @param {Object} [constraints] - Additional constraints that should be fulfilled by the value.
@@ -77,8 +74,7 @@ var LinqAssert = {
     }
   },
   
-  /** 
-   * Throws an error if the specified value is not a positive number (including zero).
+  /** Throws an error if the specified value is not a positive number (including zero).
    * @param {*} value - The value that should be a positive number.
    * @param {String} parameterName - The name of the parameter by which the number should have been supplied.
    */
@@ -86,8 +82,7 @@ var LinqAssert = {
     this.requiredNumber(value, parameterName, { min: 0 });
   },
     
-  /** 
-   * Throws an error if the specified value is a null value.
+  /** Throws an error if the specified value is a null value.
    * @param {*} value - The value that should not be null.
    * @param {String} parameterName - The name of the parameter by which the value should have been supplied.
    */
@@ -97,39 +92,34 @@ var LinqAssert = {
     }
   },
     
-  /** 
-   * Throws an error indicating an invalid argument value.
+  /** Throws an error indicating an invalid argument value.
    * @param {String} parameterName - The name of the parameter by which an invalid value has been supplied.
    */
   throwArgumentError: function(parameterName) {
     throw new Error('Invalid parameter: ' + parameterName);
   },
     
-  /** 
-   * Throws an error indicating a null value for a required parameter.
+  /** Throws an error indicating a null value for a required parameter.
    * @param {String} parameterName - The name of the parameter by which an invalid value has been supplied.
    */
   throwArgumentNullError: function(parameterName) {
     throw new Error('Argument was null: ' + parameterName);
   },
   
-  /** 
-   * Throws an error indicating an argument value being out of range.
+  /** Throws an error indicating an argument value being out of range.
    * @param {String} parameterName - The name of the parameter by which a value out of range has been supplied.
    */
   throwArgumentOutOfRangeError: function(parameterName) {
     throw new Error('Parameter value out of range: ' + parameterName);
   },
   
-  /** 
-   * Throws an error indicating a sequence containing no matching elements when it should have.
+  /** Throws an error indicating a sequence containing no matching elements when it should have.
    */
   throwNoMatchingItemError: function() {
     throw new Error('No item matched the predicate or sequence was empty');
   },
   
-  /** 
-   * Throws an error indicating a sequence containing multiple matching elements when it should have not.
+  /** Throws an error indicating a sequence containing multiple matching elements when it should have not.
    */
   throwMultipleMatchingItemsError: function() {
     throw new Error('Multiple items in the sequence matched the predicate.');
@@ -144,13 +134,13 @@ var LinqAssert = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="Grouping.html">Grouping</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="JoinEnumerable.html">JoinEnumerable</a></li><li><a href="JoinEnumerator.html">JoinEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="Lookup.html">Lookup</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jun 05 2016 21:07:35 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jul 03 2016 18:11:06 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

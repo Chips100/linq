@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Lookup</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Lookup</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>Lookup</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Lookup"><span class="type-signature"></span>new Lookup<span class="signature">(source, keySelector, elementSelector<span class="signature-attributes">opt</span>, keyEqualityComparer<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates a Lookup from a sequence according to a specified key selector function and an element selector function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The source sequence with the elements to create the Lookup from.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keySelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function used to extract a key from each element.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>elementSelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A transform function to produce a result element value from each element.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keyEqualityComparer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type"><a href="global.html#EqualityComparer">EqualityComparer</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Comparer used for comparing keys extracted from elements.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Lookup_Lookup.js.html">Lookup/Lookup.js</a>, <a href="Lookup_Lookup.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(key)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets the elements that have been grouped under the specified key.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Lookup.html">Lookup</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The key to get elements for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Lookup_Lookup.js.html">Lookup/Lookup.js</a>, <a href="Lookup_Lookup.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A sequence with the elements grouped under the specified key.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getKeys"><span class="type-signature"></span>getKeys<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets the keys that are known in this Lookup.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Lookup.html">Lookup</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Lookup_Lookup.js.html">Lookup/Lookup.js</a>, <a href="Lookup_Lookup.js.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A sequence with the keys that are known in this Lookup.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="Grouping.html">Grouping</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="JoinEnumerable.html">JoinEnumerable</a></li><li><a href="JoinEnumerator.html">JoinEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="Lookup.html">Lookup</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jul 03 2016 18:11:08 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

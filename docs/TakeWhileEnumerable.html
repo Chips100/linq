@@ -163,7 +163,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_takeWhile_TakeWhileEnumerable.js.html">Enumerable/takeWhile/TakeWhileEnumerable.js</a>, <a href="Enumerable_takeWhile_TakeWhileEnumerable.js.html#line23">line 23</a>
+        <a href="Enumerable_enumerationMethods_takeWhile_TakeWhileEnumerable.js.html">Enumerable/enumerationMethods/takeWhile/TakeWhileEnumerable.js</a>, <a href="Enumerable_enumerationMethods_takeWhile_TakeWhileEnumerable.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -223,11 +223,586 @@
 
     
 
+    <h4 class="name" id="aggregate"><span class="type-signature"></span>aggregate<span class="signature">(seed<span class="signature-attributes">opt</span>, func, resultSelector<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Applies an accumulator function over a sequence.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>seed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The initial accumulator value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An accumulator function to be invoked on each element.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resultSelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to transform the final accumulator value into the result value.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#aggregate">Enumerable#aggregate</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_aggregate.js.html">Enumerable/aggregationMethods/aggregate.js</a>, <a href="Enumerable_aggregationMethods_aggregate.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The transformed final accumulator value.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="all"><span class="type-signature"></span>all<span class="signature">(predicate)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Determines whether all elements of a sequence satisfy a condition.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#all">Enumerable#all</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_all.js.html">Enumerable/aggregationMethods/all.js</a>, <a href="Enumerable_aggregationMethods_all.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="any"><span class="type-signature"></span>any<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Determines whether any element of a sequence satisfies a condition.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, this method determines if the sequence contains any elements.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#any">Enumerable#any</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_any.js.html">Enumerable/aggregationMethods/any.js</a>, <a href="Enumerable_aggregationMethods_any.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true if any elements in the source sequence pass the test in the specified predicate; otherwise, false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="concat"><span class="type-signature"></span>concat<span class="signature">(second)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Concatenates the specified sequence to this sequence.
+</div>
 
 
 
@@ -327,7 +902,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_concat_ConcatEnumerable.js.html">Enumerable/concat/ConcatEnumerable.js</a>, <a href="Enumerable_concat_ConcatEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_concat_ConcatEnumerable.js.html">Enumerable/enumerationMethods/concat/ConcatEnumerable.js</a>, <a href="Enumerable_enumerationMethods_concat_ConcatEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -380,11 +955,395 @@
 
     
 
+    <h4 class="name" id="contains"><span class="type-signature"></span>contains<span class="signature">(value, comparer<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Determines whether a sequence contains a specified element by using a specified comparer.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The value to locate in the sequence.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>comparer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type"><a href="global.html#EqualityComparer">EqualityComparer</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An equality comparer to compare values. If ommited, equality is checked by strict equality.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#contains">Enumerable#contains</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_contains.js.html">Enumerable/aggregationMethods/contains.js</a>, <a href="Enumerable_aggregationMethods_contains.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    true if the source sequence contains an element that has the specified value; otherwise, false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns a number that represents how many elements in the specified sequence satisfy a condition.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, all items are counted.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#count">Enumerable#count</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_count.js.html">Enumerable/aggregationMethods/count.js</a>, <a href="Enumerable_aggregationMethods_count.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A number that represents how many elements in the sequence satisfy the condition in the predicate function.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="defaultIfEmpty"><span class="type-signature"></span>defaultIfEmpty<span class="signature">(defaultValue)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Returns the elements of the specified sequence or the specified value in a singleton collection if the sequence is empty.
+</div>
 
 
 
@@ -484,7 +1443,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_defaultIfEmpty_DefaultIfEmptyEnumerable.js.html">Enumerable/defaultIfEmpty/DefaultIfEmptyEnumerable.js</a>, <a href="Enumerable_defaultIfEmpty_DefaultIfEmptyEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_defaultIfEmpty_DefaultIfEmptyEnumerable.js.html">Enumerable/enumerationMethods/defaultIfEmpty/DefaultIfEmptyEnumerable.js</a>, <a href="Enumerable_enumerationMethods_defaultIfEmpty_DefaultIfEmptyEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -542,6 +1501,10 @@
     
 
 
+
+<div class="description">
+    Returns distinct elements from a sequence by using a specified comparer to compare values.
+</div>
 
 
 
@@ -644,7 +1607,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_distinct_DistinctEnumerable.js.html">Enumerable/distinct/DistinctEnumerable.js</a>, <a href="Enumerable_distinct_DistinctEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_distinct_DistinctEnumerable.js.html">Enumerable/enumerationMethods/distinct/DistinctEnumerable.js</a>, <a href="Enumerable_enumerationMethods_distinct_DistinctEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -697,11 +1660,176 @@
 
     
 
+    <h4 class="name" id="elementAt"><span class="type-signature"></span>elementAt<span class="signature">(index)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the element at a specified index in a sequence.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The zero-based index of the element to retrieve.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#elementAt">Enumerable#elementAt</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_elementAt.js.html">Enumerable/aggregationMethods/elementAt.js</a>, <a href="Enumerable_aggregationMethods_elementAt.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The element at the specified position in the source sequence.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="except"><span class="type-signature"></span>except<span class="signature">(second, comparer)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Produces the set difference of two sequences by using the specified comparer to compare values.
+</div>
 
 
 
@@ -827,7 +1955,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_except_ExceptEnumerable.js.html">Enumerable/except/ExceptEnumerable.js</a>, <a href="Enumerable_except_ExceptEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_except_ExceptEnumerable.js.html">Enumerable/enumerationMethods/except/ExceptEnumerable.js</a>, <a href="Enumerable_enumerationMethods_except_ExceptEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -880,11 +2008,361 @@
 
     
 
+    <h4 class="name" id="first"><span class="type-signature"></span>first<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the first element in a sequence that satisfies a specified condition.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, the first item from the sequence is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#first">Enumerable#first</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_first.js.html">Enumerable/aggregationMethods/first.js</a>, <a href="Enumerable_aggregationMethods_first.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The first element in the sequence that passes the test in the specified predicate function.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="firstOrDefault"><span class="type-signature"></span>firstOrDefault<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the first element of the sequence that satisfies a condition or a default value if no such element is found.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, the first item from the sequence is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#firstOrDefault">Enumerable#firstOrDefault</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_firstOrDefault.js.html">Enumerable/aggregationMethods/firstOrDefault.js</a>, <a href="Enumerable_aggregationMethods_firstOrDefault.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    null if source is empty or if no element passes the test specified by predicate; otherwise, the first element in source that passes the test specified by predicate.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="getEnumerator"><span class="type-signature"></span>getEnumerator<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="global.html#Enumerator">Enumerator</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Returns an Enumerator that iterates through a collection.
+</div>
 
 
 
@@ -993,6 +2471,10 @@
     
 
 
+
+<div class="description">
+    Produces the set intersection of two sequences by using the specified comparer to compare values.
+</div>
 
 
 
@@ -1118,7 +2600,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_intersect_IntersectEnumerable.js.html">Enumerable/intersect/IntersectEnumerable.js</a>, <a href="Enumerable_intersect_IntersectEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_intersect_IntersectEnumerable.js.html">Enumerable/enumerationMethods/intersect/IntersectEnumerable.js</a>, <a href="Enumerable_enumerationMethods_intersect_IntersectEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -1171,11 +2653,617 @@
 
     
 
+    <h4 class="name" id="join"><span class="type-signature"></span>join<span class="signature">(inner, outerKeySelector, innerKeySelector, resultSelector, keyEqualityComparer)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Correlates the elements of two sequences based on matching keys. An EqualityComparer can be specified to be used to compare keys.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>inner</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The sequence to join to the first sequence.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outerKeySelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A function to extract the join key from each element of the first sequence.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>innerKeySelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A function to extract the join key from each element of the second sequence.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resultSelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A function to create a result element from two matching elements.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keyEqualityComparer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type"><a href="global.html#EqualityComparer">EqualityComparer</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A function or an EqualityComparer to compare keys for equality.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#join">Enumerable#join</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_enumerationMethods_join_JoinEnumerable.js.html">Enumerable/enumerationMethods/join/JoinEnumerable.js</a>, <a href="Enumerable_enumerationMethods_join_JoinEnumerable.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A sequence that has elements that are obtained by performing an inner join on two sequences.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Enumerable.html">Enumerable</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="last"><span class="type-signature"></span>last<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the last element in a sequence that satisfies a specified condition.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, the last item from the sequence is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#last">Enumerable#last</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_last.js.html">Enumerable/aggregationMethods/last.js</a>, <a href="Enumerable_aggregationMethods_last.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The last element in the sequence that passes the test in the specified predicate function.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="lastOrDefault"><span class="type-signature"></span>lastOrDefault<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the last element of the sequence that satisfies a condition or a default value if no such element is found.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test each element for a condition. If omitted, the last item from the sequence is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#lastOrDefault">Enumerable#lastOrDefault</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_lastOrDefault.js.html">Enumerable/aggregationMethods/lastOrDefault.js</a>, <a href="Enumerable_aggregationMethods_lastOrDefault.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    null if source is empty or if no element passes the test specified by predicate; otherwise, the last element in source that passes the test specified by predicate.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="select"><span class="type-signature"></span>select<span class="signature">(selector)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Projects each element of a sequence into a new form.
+</div>
 
 
 
@@ -1275,7 +3363,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_select_SelectEnumerable.js.html">Enumerable/select/SelectEnumerable.js</a>, <a href="Enumerable_select_SelectEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_select_SelectEnumerable.js.html">Enumerable/enumerationMethods/select/SelectEnumerable.js</a>, <a href="Enumerable_enumerationMethods_select_SelectEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -1333,6 +3421,10 @@
     
 
 
+
+<div class="description">
+    Projects each element of a sequence to an Enumerable, flattens the resulting sequences into one sequence, and invokes a result selector function on each element therein. The index of each source element can be used in the intermediate projected form of that element.
+</div>
 
 
 
@@ -1475,7 +3567,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_selectMany_SelectManyEnumerable.js.html">Enumerable/selectMany/SelectManyEnumerable.js</a>, <a href="Enumerable_selectMany_SelectManyEnumerable.js.html#line15">line 15</a>
+        <a href="Enumerable_enumerationMethods_selectMany_SelectManyEnumerable.js.html">Enumerable/enumerationMethods/selectMany/SelectManyEnumerable.js</a>, <a href="Enumerable_enumerationMethods_selectMany_SelectManyEnumerable.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -1528,11 +3620,361 @@
 
     
 
+    <h4 class="name" id="single"><span class="type-signature"></span>single<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test an element for a condition. If omitted, the only item is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#single">Enumerable#single</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_single.js.html">Enumerable/aggregationMethods/single.js</a>, <a href="Enumerable_aggregationMethods_single.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The single element of the input sequence that satisfies a condition.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="singleOrDefault"><span class="type-signature"></span>singleOrDefault<span class="signature">(predicate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception if there is more than one element in the sequence.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>predicate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function to test an element for a condition. If omitted, the only item is used.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#singleOrDefault">Enumerable#singleOrDefault</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_singleOrDefault.js.html">Enumerable/aggregationMethods/singleOrDefault.js</a>, <a href="Enumerable_aggregationMethods_singleOrDefault.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The single element of the input sequence that satisfies the condition, or null if no such element is found.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="skip"><span class="type-signature"></span>skip<span class="signature">(count)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+</div>
 
 
 
@@ -1632,7 +4074,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_skip_SkipEnumerable.js.html">Enumerable/skip/SkipEnumerable.js</a>, <a href="Enumerable_skip_SkipEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_skip_SkipEnumerable.js.html">Enumerable/enumerationMethods/skip/SkipEnumerable.js</a>, <a href="Enumerable_enumerationMethods_skip_SkipEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -1690,6 +4132,10 @@
     
 
 
+
+<div class="description">
+    Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.The element's index can be  used in the logic of the predicate function.
+</div>
 
 
 
@@ -1789,7 +4235,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_skipWhile_SkipWhileEnumerable.js.html">Enumerable/skipWhile/SkipWhileEnumerable.js</a>, <a href="Enumerable_skipWhile_SkipWhileEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_skipWhile_SkipWhileEnumerable.js.html">Enumerable/enumerationMethods/skipWhile/SkipWhileEnumerable.js</a>, <a href="Enumerable_enumerationMethods_skipWhile_SkipWhileEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -1847,6 +4293,10 @@
     
 
 
+
+<div class="description">
+    Returns a specified number of contiguous elements from the start of a sequence.
+</div>
 
 
 
@@ -1946,7 +4396,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_take_TakeEnumerable.js.html">Enumerable/take/TakeEnumerable.js</a>, <a href="Enumerable_take_TakeEnumerable.js.html#line11">line 11</a>
+        <a href="Enumerable_enumerationMethods_take_TakeEnumerable.js.html">Enumerable/enumerationMethods/take/TakeEnumerable.js</a>, <a href="Enumerable_enumerationMethods_take_TakeEnumerable.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -2004,6 +4454,10 @@
     
 
 
+
+<div class="description">
+    Returns elements from a sequence as long as a specified condition is true.
+</div>
 
 
 
@@ -2103,7 +4557,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_takeWhile_TakeWhileEnumerable.js.html">Enumerable/takeWhile/TakeWhileEnumerable.js</a>, <a href="Enumerable_takeWhile_TakeWhileEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_takeWhile_TakeWhileEnumerable.js.html">Enumerable/enumerationMethods/takeWhile/TakeWhileEnumerable.js</a>, <a href="Enumerable_enumerationMethods_takeWhile_TakeWhileEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -2156,11 +4610,127 @@
 
     
 
+    <h4 class="name" id="toArray"><span class="type-signature"></span>toArray<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Copies the elements of this sequence to a new array.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#toArray">Enumerable#toArray</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_toArray.js.html">Enumerable/aggregationMethods/toArray.js</a>, <a href="Enumerable_aggregationMethods_toArray.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    An array containing copies of the elements of this sequence.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="toList"><span class="type-signature"></span>toList<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="List.html">List</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Creates a new List with the items from this sequence.
+</div>
 
 
 
@@ -2264,11 +4834,255 @@
 
     
 
+    <h4 class="name" id="toLookup"><span class="type-signature"></span>toLookup<span class="signature">(keySelector, elementSelector<span class="signature-attributes">opt</span>, keyEqualityComparer<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="Lookup.html">Lookup</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates a lookup object from a sequence according to a specified key selector function and an element selector function.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li><a href="Enumerable.html">Enumerable</a></li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>keySelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A function used to extract a key from each element.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>elementSelector</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A transform function to produce a result element value from each element.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keyEqualityComparer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type"><a href="global.html#EqualityComparer">EqualityComparer</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Comparer used for comparing keys extracted from elements.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="Enumerable.html#toLookup">Enumerable#toLookup</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Enumerable_aggregationMethods_toLookup.js.html">Enumerable/aggregationMethods/toLookup.js</a>, <a href="Enumerable_aggregationMethods_toLookup.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A lookup object with the grouped elements.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Lookup.html">Lookup</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="union"><span class="type-signature"></span>union<span class="signature">(second, comparer)</span><span class="type-signature"> &rarr; {<a href="Enumerable.html">Enumerable</a>}</span></h4>
 
     
 
 
+
+<div class="description">
+    Produces the set union of two sequences by using a specified comparer.
+</div>
 
 
 
@@ -2394,7 +5208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_union_UnionEnumerable.js.html">Enumerable/union/UnionEnumerable.js</a>, <a href="Enumerable_union_UnionEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_union_UnionEnumerable.js.html">Enumerable/enumerationMethods/union/UnionEnumerable.js</a>, <a href="Enumerable_enumerationMethods_union_UnionEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -2452,6 +5266,10 @@
     
 
 
+
+<div class="description">
+    Filters a sequence of values based on a predicate. Each element's index can be used in the logic of the predicate function.
+</div>
 
 
 
@@ -2551,7 +5369,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Enumerable_where_WhereEnumerable.js.html">Enumerable/where/WhereEnumerable.js</a>, <a href="Enumerable_where_WhereEnumerable.js.html#line12">line 12</a>
+        <a href="Enumerable_enumerationMethods_where_WhereEnumerable.js.html">Enumerable/enumerationMethods/where/WhereEnumerable.js</a>, <a href="Enumerable_enumerationMethods_where_WhereEnumerable.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -2615,13 +5433,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="Grouping.html">Grouping</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="JoinEnumerable.html">JoinEnumerable</a></li><li><a href="JoinEnumerator.html">JoinEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="Lookup.html">Lookup</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jun 05 2016 21:07:37 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jul 03 2016 18:11:09 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

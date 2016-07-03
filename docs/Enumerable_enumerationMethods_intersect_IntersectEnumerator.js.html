@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Enumerable/enumerationMethods/intersect/IntersectEnumerator.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Enumerable/enumerationMethods/intersect/IntersectEnumerator.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Defines the IntersectEnumerator used to iterate through collections created by an intersect operation.
+ * @author Chips100
+ */
+
+/**
+ * Represents an Enumerator used to iterate through a collection created by an intersect operation.
+ * @class
+ * @augments Enumerator
+ * @param {Enumerable} first - An Enumerable whose distinct elements that also appear in second will be returned.
+ * @param {Enumerable} second -  An Enumerable whose distinct elements that also appear in the first sequence will be returned.
+ * @param {Function|EqualityComparer} comparer - A function or an EqualityComparer to compare values for equality.
+ */
+function IntersectEnumerator(first, second, comparer) {
+	this._firstEnumerator = first.getEnumerator();
+	this._secondEnumerator = second.getEnumerator();
+	this._comparer = comparer;
+
+	this.reset();
+}
+
+/** Gets the current element in the collection.
+ * @this IntersectEnumerator
+ * @returns {*} The current element in the collection.
+ */
+IntersectEnumerator.prototype.getCurrent = function () {
+	return this._firstEnumerator.getCurrent();
+};
+
+/** Advances the enumerator to the next element of the collection.
+ * @this IntersectEnumerator
+ * @returns {Boolean} true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.
+ */
+IntersectEnumerator.prototype.moveNext = function () {
+	var current,
+		currentHash;
+
+	// Iterate over the second sequence first to collect all values for finding intersections.
+	if (!this._hasScannedSecond) {
+		while (this._secondEnumerator.moveNext()) {
+			current = this._secondEnumerator.getCurrent();
+			currentHash = this._comparer.getHashCode(current);
+
+			if (!this._seenElements[currentHash]) {
+				this._seenElements[currentHash] = [current];
+			}
+			else {
+				this._seenElements[currentHash].push(current);
+			}
+		}
+
+		this._hasScannedSecond = true;
+	}
+
+	// Move next on the source sequence and check if there is an intersection in the second sequence.
+	if (this._firstEnumerator.moveNext()) {
+		current = this._firstEnumerator.getCurrent();
+		currentHash = this._comparer.getHashCode(current);
+
+		if (!this._seenElements[currentHash]) {
+			// No element with the same hash, try the next one.
+			return this.moveNext();
+		}
+		else {
+			for (var i = this._seenElements[currentHash].length - 1; i >= 0; i--) {
+				if (this._comparer.equals(current, this._seenElements[currentHash][i])) {
+
+					// At this point we are willing to yield the element, because we found it in second sequence as well.
+					// We have to make sure that this element has not been yielded before.
+					if (!this._yieldedElements[currentHash]) {
+						this._yieldedElements[currentHash] = [current];
+						return true;
+					}
+					else {
+						// The method is definitly going to exit in this iteration, so we can reuse the iterator variables.
+						for (i = this._yieldedElements[currentHash].length - 1; i >= 0; i--) {
+							if (this._comparer.equals(current, this._yieldedElements[currentHash][i])) {
+								// Already yielded the found item, try the next one.
+								return this.moveNext();
+							}
+						}
+
+						// Remember that this item has been yielded to not yield it again.
+						this._yieldedElements[currentHash].push(current);
+						return true;
+					}
+				}
+			}
+
+			return this.moveNext();
+		}
+	}
+	else {
+		return false;
+	}
+};
+
+/** Sets the enumerator to its initial position, which is before the first element in the collection.
+ * @this IntersectEnumerator
+ */
+IntersectEnumerator.prototype.reset = function () {
+	this._firstEnumerator.reset();
+	this._secondEnumerator.reset();
+	this._hasScannedSecond = false;
+	this._seenElements = {};
+	this._yieldedElements = {};
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="Grouping.html">Grouping</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="JoinEnumerable.html">JoinEnumerable</a></li><li><a href="JoinEnumerator.html">JoinEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="Lookup.html">Lookup</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jul 03 2016 18:11:05 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

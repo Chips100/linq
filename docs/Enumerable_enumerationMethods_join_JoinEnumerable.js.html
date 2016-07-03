@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Enumerable/enumerationMethods/join/JoinEnumerable.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Enumerable/enumerationMethods/join/JoinEnumerable.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Adds the join method to the Enumerable prototype.
+ * @author Chips100
+ */
+
+/** Correlates the elements of two sequences based on matching keys. An EqualityComparer can be specified to be used to compare keys.
+ * @this Enumerable
+ * @param {Enumerable} inner - The sequence to join to the first sequence.
+ * @param {Function} outerKeySelector - A function to extract the join key from each element of the first sequence.
+ * @param {Function} innerKeySelector - A function to extract the join key from each element of the second sequence.
+ * @param {Function} resultSelector - A function to create a result element from two matching elements.
+ * @param {Function|EqualityComparer} keyEqualityComparer - A function or an EqualityComparer to compare keys for equality.
+ * @returns {Enumerable} A sequence that has elements that are obtained by performing an inner join on two sequences.
+ */
+Enumerable.prototype.join = function (inner, outerKeySelector, innerKeySelector, resultSelector, keyEqualityComparer) {
+	return new JoinEnumerable(this, inner, outerKeySelector, innerKeySelector, resultSelector, keyEqualityComparer);
+};
+
+/**
+ * Represents an Enumerable created by a join operation.
+ * @class
+ * @augments Enumerable
+ * @param {Enumerable} outer - The first sequence to join.
+ * @param {Enumerable} inner - The sequence to join to the first sequence.
+ * @param {Function} outerKeySelector - A function to extract the join key from each element of the first sequence.
+ * @param {Function} innerKeySelector - A function to extract the join key from each element of the second sequence.
+ * @param {Function} resultSelector - A function to create a result element from two matching elements.
+ * @param {Function|EqualityComparer} keyEqualityComparer - A function or an EqualityComparer to compare keys for equality.
+ */
+function JoinEnumerable(outer, inner, outerKeySelector, innerKeySelector, resultSelector, keyEqualityComparer) {
+	LinqAssert.requiredEnumerable(outer, 'outer');
+	LinqAssert.requiredEnumerable(inner, 'inner');
+	LinqAssert.requiredFunction(outerKeySelector, 'outerKeySelector');
+	LinqAssert.requiredFunction(innerKeySelector, 'innerKeySelector');
+	LinqAssert.requiredFunction(resultSelector, 'resultSelector');
+
+    this._outer = outer;
+    this._inner = inner;
+    this._outerKeySelector = outerKeySelector;
+    this._innerKeySelector = innerKeySelector;
+    this._resultSelector = resultSelector;
+    this._keyEqualityComparer = LinqUtils.createEqualityComparer(keyEqualityComparer);
+}
+
+// Put the Enumerable prototype into the prototype chain.
+JoinEnumerable.prototype = Object.create(Enumerable.prototype);
+
+/** Returns an Enumerator that iterates through the current collection.
+ * @this IntersectEnumerable
+ * @override
+ * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
+ */
+JoinEnumerable.prototype.getEnumerator = function () {
+	return new JoinEnumerator(this._outer, this._inner, this._outerKeySelector, this._innerKeySelector, this._resultSelector, this._keyEqualityComparer);
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ConcatEnumerable.html">ConcatEnumerable</a></li><li><a href="ConcatEnumerator.html">ConcatEnumerator</a></li><li><a href="DefaultIfEmptyEnumerable.html">DefaultIfEmptyEnumerable</a></li><li><a href="DefaultIfEmptyEnumerator.html">DefaultIfEmptyEnumerator</a></li><li><a href="DistinctEnumerable.html">DistinctEnumerable</a></li><li><a href="DistinctEnumerator.html">DistinctEnumerator</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="ExceptEnumerable.html">ExceptEnumerable</a></li><li><a href="ExceptEnumerator.html">ExceptEnumerator</a></li><li><a href="Grouping.html">Grouping</a></li><li><a href="IntersectEnumerable.html">IntersectEnumerable</a></li><li><a href="IntersectEnumerator.html">IntersectEnumerator</a></li><li><a href="JoinEnumerable.html">JoinEnumerable</a></li><li><a href="JoinEnumerator.html">JoinEnumerator</a></li><li><a href="List.html">List</a></li><li><a href="ListEnumerator.html">ListEnumerator</a></li><li><a href="Lookup.html">Lookup</a></li><li><a href="RangeEnumerable.html">RangeEnumerable</a></li><li><a href="RangeEnumerator.html">RangeEnumerator</a></li><li><a href="RepeatEnumerable.html">RepeatEnumerable</a></li><li><a href="RepeatEnumerator.html">RepeatEnumerator</a></li><li><a href="SelectEnumerable.html">SelectEnumerable</a></li><li><a href="SelectEnumerator.html">SelectEnumerator</a></li><li><a href="SelectManyEnumerable.html">SelectManyEnumerable</a></li><li><a href="SelectManyEnumerator.html">SelectManyEnumerator</a></li><li><a href="SkipEnumerable.html">SkipEnumerable</a></li><li><a href="SkipEnumerator.html">SkipEnumerator</a></li><li><a href="SkipWhileEnumerable.html">SkipWhileEnumerable</a></li><li><a href="SkipWhileEnumerator.html">SkipWhileEnumerator</a></li><li><a href="TakeEnumerable.html">TakeEnumerable</a></li><li><a href="TakeEnumerator.html">TakeEnumerator</a></li><li><a href="TakeWhileEnumerable.html">TakeWhileEnumerable</a></li><li><a href="TakeWhileEnumerator.html">TakeWhileEnumerator</a></li><li><a href="UnionEnumerable.html">UnionEnumerable</a></li><li><a href="UnionEnumerator.html">UnionEnumerator</a></li><li><a href="WhereEnumerable.html">WhereEnumerable</a></li><li><a href="WhereEnumerator.html">WhereEnumerator</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EqualsFunction">EqualsFunction</a></li><li><a href="global.html#GetCurrentFunction">GetCurrentFunction</a></li><li><a href="global.html#GetHashCodeFunction">GetHashCodeFunction</a></li><li><a href="global.html#MoveNextFunction">MoveNextFunction</a></li><li><a href="global.html#ResetFunction">ResetFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jul 03 2016 18:11:05 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

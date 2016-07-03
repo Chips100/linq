@@ -22,9 +22,9 @@ function Lookup(source, keySelector, valueSelector, keyEqualityComparer) {
     this._setup(sourceEnumerable, keySelector, LinqUtils.createSelectorFunction(valueSelector));
 }
 
-/** @this Lookup
+/** Adds the specified value to this lookup, grouping it under the specified key.
+ * @this Lookup
  * @private
- * Adds the specified value to this lookup, grouping it under the specified key.
  * @param {*} key - The key under which the value should be added.
  * @param {*} value - The value to add to this Lookup.
  */
@@ -43,9 +43,9 @@ Lookup.prototype._addValueWithKey = function(key, value) {
     grouping.addElement(value);
 };
 
-/** @this Lookup
+/** Gets the grouping for the specified key.
+ * @this Lookup
  * @private
- * Gets the grouping for the specified key.
  * @param {*} key - The key for which to get the grouping.
  * @returns {Grouping} The grouping that holds the elements for the specified key, or undefined if the key is not used in this Lookup.
  */
@@ -62,9 +62,9 @@ Lookup.prototype._getGroupingByKey = function(key) {
     }
 };
 
-/** @this Lookup
+/** Initializes this Lookup with the specified elements using the specified key and value selector functions.
+ * @this Lookup
  * @private
- * Initializes this Lookup with the specified elements using the specified key and value selector functions.
  * @param {Enumerable} enumerable - The source sequence with the elements to fill this lookup with.
  * @param {Function} keySelector - A function used to extract a key from each element.
  * @param {Function} [elementSelector] - A transform function to produce a result element value from each element.
@@ -79,8 +79,8 @@ Lookup.prototype._setup = function(enumerable, keySelector, valueSelector) {
     }
 };
 
-/** @this Lookup
- * Gets the elements that have been grouped under the specified key.
+/** Gets the elements that have been grouped under the specified key.
+ * @this Lookup
  * @param {*} key - The key to get elements for.
  * @returns {Enumerable} A sequence with the elements grouped under the specified key.
  */
@@ -95,8 +95,8 @@ Lookup.prototype.get = function(key) {
     }
 };
 
-/** @this Lookup
- * Gets the keys that are known in this Lookup.
+/** Gets the keys that are known in this Lookup.
+ * @this Lookup
  * @returns {Enumerable} A sequence with the keys that are known in this Lookup.
  */
 Lookup.prototype.getKeys = function() {

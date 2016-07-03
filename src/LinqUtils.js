@@ -62,8 +62,7 @@ var LinqUtils = {
     return this.isFunction(selector) ? selector : this.defaultSelectorFunction;
   },
 
-  /** 
-   * Default equality comparer function that checks two arguments for equality.
+  /** Default equality comparer function that checks two arguments for equality.
    * @param {*} [a] - The first value that should be checked for equality.
    * @param {*} [b] - The second value that should be checked for equality.
    * @returns {Boolean} True, if the arguments are equal, otherwise false.
@@ -72,8 +71,7 @@ var LinqUtils = {
     return a === b;
   },
 
-  /** 
-   * Default selector function to use when elements should be projected.
+  /** Default selector function to use when elements should be projected.
    * @param {*} [x] - The value to project.
    * @returns {*} The projected value.
    */
@@ -81,8 +79,7 @@ var LinqUtils = {
     return x;
   },
 
-  /** 
-   * Determines if the specified value is an array.
+  /** Determines if the specified value is an array.
    * @param {*} [input] - Value that could be an array.
    * @returns {Boolean} True, if the specified value is an array; otherwise false.
    */
@@ -91,8 +88,7 @@ var LinqUtils = {
     return Object.prototype.toString.call(input) === '[object Array]';
   },
 
-  /** 
-   * Determines if the specified value is a sequence.
+  /** Determines if the specified value is a sequence.
    * @param {*} [input] - Value that could be a sequence.
    * @returns {Boolean} True, if the specified value is a sequence; otherwise false.
    */
@@ -100,8 +96,7 @@ var LinqUtils = {
     return input instanceof Enumerable;
   },
 
-  /** 
-   * Determines if the specified value is a function.
+  /** Determines if the specified value is a function.
    * @param {*} [input] - Value that could be a function.
    * @returns {Boolean} True, if the specified value is a function; otherwise false.
    */

@@ -27,16 +27,16 @@ function List(array) {
 // Put the Enumerable prototype into the prototype chain.
 List.prototype = Object.create(Enumerable.prototype);
 
-/** @this List
- * Adds an object to the end of the List. 
+/** Adds an object to the end of the List. 
+ * @this List
  * @param {*} item - The object to be added to the end of the List.
  */
 List.prototype.add = function(item) {
   this._array.push(item);  
 };
 
-/** @this List
- * Adds the elements of the specified collection to the end of the List.
+/** Adds the elements of the specified collection to the end of the List.
+ * @this List
  * @param {Array|Enumerable} items - The sequence whose elements should be added to the end of the List.
  */
 List.prototype.addRange = function(items) {
@@ -48,15 +48,15 @@ List.prototype.addRange = function(items) {
   }
 };
 
-/** @this List
- * Removes all elements from the List.
+/** Removes all elements from the List.
+ * @this List
  */
 List.prototype.clear = function() {
   this._array.length = 0;  
 };
 
-/** @this List
- * Copies a range of elements from this List to a one-dimensional array, starting at the specified index of the target array.
+/** Copies a range of elements from this List to a one-dimensional array, starting at the specified index of the target array.
+ * @this List
  * @param {Number} [index] - The zero-based index in this List at which copying begins. If omitted, the complete List is copied.
  * @param {Array} [array] - The one-dimensional Array that is the destination of the elements copied from List.
  * @param {Number} [arrayIndex] - The zero-based index in array at which copying begins.
@@ -99,8 +99,8 @@ List.prototype.copyTo = function(index, array, arrayIndex, count) {
     }
 };
 
-/** @this List
- * Returns a number that represents how many elements in the specified sequence satisfy a condition.
+/** Returns a number that represents how many elements in the specified sequence satisfy a condition.
+ * @this List
  * @override 
  * @param {Function} [predicate] - A function to test each element for a condition. If omitted, all items are counted.
  * @returns {Number} A number that represents how many elements in the sequence satisfy the condition in the predicate function.
@@ -114,8 +114,8 @@ List.prototype.count = function(predicate) {
   }
 };
 
-/** @this List
- * Returns the element at a specified index in a sequence.
+/** Returns the element at a specified index in a sequence.
+ * @this List
  * @override 
  * @param {Number} index - The zero-based index of the element to retrieve.
  * @returns {*} The element at the specified position in the source sequence.
@@ -124,8 +124,8 @@ List.prototype.elementAt = function(index) {
     return this._array[index];
 }
 
-/** @this List
- * Returns an enumerator that iterates through this list.
+/** Returns an enumerator that iterates through this list.
+ * @this List
  * @override
  * @returns {ListEnumerator} An enumerator object that can be used to iterate through this list.
  */
@@ -133,8 +133,8 @@ List.prototype.getEnumerator = function() {
   return new ListEnumerator(this._array);  
 };
 
-/** @this List
- * Inserts an element into this List at the specified index.
+/** Inserts an element into this List at the specified index.
+ * @this List
  * @param {Number} index - The zero-based index at which the element should be inserted.
  * @param {*} element - The value to insert.
  */
@@ -142,8 +142,8 @@ List.prototype.insert = function(index, element) {
     this._array.splice(index, 0, element);
 };
 
-/** @this List
- * Inserts the elements of an array or a sequence into this List at the specified index.
+/** Inserts the elements of an array or a sequence into this List at the specified index.
+ * @this List
  * @param {Number} index - The zero-based index at which the new elements should be inserted.
  * @param {Array|Enumerable} elements - The sequence whose elements should be inserted into this List.
  */
@@ -164,8 +164,8 @@ List.prototype.insertRange = function(index, elements) {
     Array.prototype.splice.apply(this._array, args);
 };
 
-/** @this List
- * Reverses the order of the elements in this List.
+/** Reverses the order of the elements in this List.
+ * @this List
  * @param {Number} [index] - The zero-based starting index of the range to reverse. If omitted, the complete List is reversed.
  * @param {Number} [count] - The number of elements in the range to reverse.
  */
