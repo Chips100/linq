@@ -1,6 +1,10 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         concat: {
+            options: {
+                banner: '(function() {',
+                footer: '})();'
+            },
             files: {
                 src: 'src/**/*',
                 dest: 'dist/linq.js'
