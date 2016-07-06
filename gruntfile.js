@@ -6,8 +6,17 @@ module.exports = function (grunt) {
                 footer: '})();'
             },
             files: {
-                src: 'src/**/*',
+                src: 'src/**/*.js',
                 dest: 'dist/linq.js'
+            }
+        },
+
+        jsdoc : {
+            dist : {
+                src: ['src/**/*.js'],
+                options: {
+                    destination: 'docs'
+                }
             }
         },
 
@@ -34,7 +43,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     // register at least this one task
-    grunt.registerTask('default', [ 'concat', 'uglify', 'karma' ]);
+    grunt.registerTask('build', ['concat', 'uglify', 'jsdoc']);
 };

@@ -1,6 +1,4 @@
-(function() {
-
-/**
+(function() {/**
  * @file Adds the aggregate method to the Enumerable prototype.
  * @author Chips100
  */
@@ -430,8 +428,6 @@ Enumerable.prototype.getEnumerator = function() {
 Enumerable.prototype.toList = function() {
 	return new List(this);	
 };
-
-
 /**
  * @file Adds the concat method to the Enumerable prototype.
  * @author Chips100
@@ -530,7 +526,6 @@ ConcatEnumerator.prototype.reset = function () {
 	this._firstEnumerator.reset();
 	this._isFirstActive = true;
 };
-
 /**
  * @file Adds the defaultIfEmpty method to the Enumerable prototype.
  * @author Chips100
@@ -626,7 +621,6 @@ DefaultIfEmptyEnumerator.prototype.reset = function () {
 	this._useDefault = false;
 	this._enumerator.reset();
 };
-
 /**
  * @file Adds the distinct method to the Enumerable prototype.
  * @author Chips100
@@ -733,7 +727,6 @@ DistinctEnumerator.prototype.reset = function () {
 	this._seenElements = {};
 	this._enumerator.reset();
 };
-
 /**
  * @file Adds the static empty method to the Enumerable type.
  * @author Chips100
@@ -761,7 +754,6 @@ Enumerable.empty = function () {
 	function EmptyEnumerable() { }
 	function EmptyEnumerator() { }
 };
-
 /**
  * @file Adds the except method to the Enumerable prototype.
  * @author Chips100
@@ -891,7 +883,6 @@ ExceptEnumerator.prototype.reset = function () {
 	this._hasScannedSecond = false;
 	this._bannedElements = {};
 };
-
 /**
  * @file Adds the intersect method to the Enumerable prototype.
  * @author Chips100
@@ -1042,7 +1033,6 @@ IntersectEnumerator.prototype.reset = function () {
 	this._seenElements = {};
 	this._yieldedElements = {};
 };
-
 /**
  * @file Adds the join method to the Enumerable prototype.
  * @author Chips100
@@ -1167,7 +1157,6 @@ JoinEnumerator.prototype.reset = function () {
 	this._currentInnerEnumerator = undefined;
 	this._currentOuter = undefined;
 };
-
 /**
  * @file Adds the static range method to the Enumerable type.
  * @author Chips100
@@ -1255,7 +1244,6 @@ RangeEnumerator.prototype.reset = function() {
 	this._index = this._start;
 };
 
-
 /**
  * @file Adds the static repeat method to the Enumerable type.
  * @author Chips100
@@ -1342,7 +1330,6 @@ RepeatEnumerator.prototype.moveNext = function() {
 RepeatEnumerator.prototype.reset = function() {
 	this._index = -1;
 };
-
 /**
  * @file Adds the select method to the Enumerable prototype.
  * @author Chips100
@@ -1426,7 +1413,6 @@ SelectEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._index = -1;
 };
-
 /**
  * @file Adds the selectMany method to the Enumerable prototype.
  * @author Chips100
@@ -1559,7 +1545,6 @@ SelectManyEnumerator.prototype.reset = function() {
 	this._currentElement = undefined;
 	this._currentEnumerator = undefined;
 };
-
 /**
  * @file Adds the skip method to the Enumerable prototype.
  * @author Chips100
@@ -1648,7 +1633,6 @@ SkipEnumerator.prototype.reset = function() {
 	this._enumerator.reset();
 	this._hasSkippedFirstElements = false;
 };
-
 /**
  * @file Adds the skipWhile method to the Enumerable prototype.
  * @author Chips100
@@ -1749,7 +1733,6 @@ SkipWhileEnumerator.prototype.reset = function() {
 	this._hasSkippedFirstElements = false;
 	this._index = -1;
 };
-
 /**
  * @file Adds the take method to the Enumerable prototype.
  * @author Chips100
@@ -1830,7 +1813,6 @@ TakeEnumerator.prototype.reset = function () {
 	this._enumerator.reset();
 	this._count = 0;
 };
-
 /**
  * @file Adds the takeWhile method to the Enumerable prototype.
  * @author Chips100
@@ -1934,7 +1916,6 @@ TakeWhileEnumerator.prototype.reset = function() {
 	this._index = -1;
 	this._hasReachedEnd = false;
 };
-
 /**
  * @file Adds the union method to the Enumerable prototype.
  * @author Chips100
@@ -2072,7 +2053,6 @@ UnionEnumerator.prototype.reset = function () {
 	this._isFirstActive = true;
 	this._seenElements = {};
 };
-
 /**
  * @file Adds the where method to the Enumerable prototype.
  * @author Chips100
@@ -2417,7 +2397,6 @@ var LinqUtils = {
     return typeof (input) === 'function';
   }
 };
-
 /**
  * @file Defines the List type.
  * @author Chips100
@@ -2643,7 +2622,6 @@ ListEnumerator.prototype.reset = function() {
 	this._index = -1;
 	this._count = this._array.length;
 };
-
 /**
  * @file Defines the Grouping type that is used to hold multiple elements associated with a key.
  * @author Chips100
