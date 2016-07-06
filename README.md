@@ -1,4 +1,5 @@
-linq
+linq.js
 ====
 
-A javascript implementation of .NETs LINQ enumerable interface with its extension methods.
+A Javascript framework for easier and more effective methods to work with large sequences.
+Designed to closely match the .NET LINQ API for easy adoption when having a .NET background.
