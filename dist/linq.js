@@ -2691,7 +2691,8 @@ function Lookup(source, keySelector, valueSelector, keyEqualityComparer) {
  * @param {*} value - The value to add to this Lookup.
  */
 Lookup.prototype._addValueWithKey = function(key, value) {
-    var grouping = this._getGroupingByKey(key);
+    var grouping = this._getGroupingByKey(key),
+        keyHash = undefined;
 
     if (!grouping) {        
         grouping = new Grouping(key);
