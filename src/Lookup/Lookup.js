@@ -80,6 +80,14 @@ Lookup.prototype._setup = function(enumerable, keySelector, valueSelector) {
     }
 };
 
+/** Transforms the groupings that this Lookup consists of into a sequence.
+ * @this Lookup
+ * @returns {Enumerable} A sequence with the groupings from this Lookup.
+ */
+Lookup.prototype.asEnumerable = function() {
+    return new LookupEnumerable(this);
+};
+
 /** Gets the elements that have been grouped under the specified key.
  * @this Lookup
  * @param {*} key - The key to get elements for.

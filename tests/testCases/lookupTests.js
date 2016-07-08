@@ -82,6 +82,16 @@
         deepEqual(elementsWithKey3.toArray(), elementsWithKey4.toArray(), 'Grouped items with keys 3 and 4 under the same key.');
     });
 
+    test('Lookup#asEnumerable should create an Enumerable that iterates over all groupings.', function() {
+        var lookup = new Lookup(getTestSource(), function(x) { return x.groupId; });
+
+        var enumerable = lookup.asEnumerable();
+
+        ok(enumerable instanceof Enumerable, 'Lookup#asEnumerable returned an instance of Enumerable');
+        strictEqual(lookup.getKeys().count(), enumerable.count(), 'Enumerable has as many elements as there are keys in the Lookup.');
+        deepEqual(enumerable.first().toArray(), lookup.get(enumerable.first().key).toArray());
+    });
+
     function getTestSource() {   
         return new List([
             { groupId: 4, name: 'Item1' }, 

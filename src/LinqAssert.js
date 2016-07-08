@@ -23,6 +23,16 @@ var LinqAssert = {
     }  
   },
   
+  /** Throws an error if the specified value is not a Lookup.
+   * @param {*} value - The value that should be a Lookup.
+   * @param {String} parameterName - The name of the parameter by which the Lookup should have been supplied.
+   */
+  requiredLookup: function(value, parameterName) {
+    if (!LinqUtils.isLookup(value)) {
+      this.throwArgumentError(parameterName);
+    }
+  },
+  
   /** Throws an error if the specified value is not a number or does not fulfill the specified constraints.
    * @param {*} value - The value that should be a number fulfilling the specified constraints.
    * @param {String} parameterName - The name of the parameter by which the function should have been supplied.

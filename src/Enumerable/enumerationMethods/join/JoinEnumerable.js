@@ -46,7 +46,7 @@ function JoinEnumerable(outer, inner, outerKeySelector, innerKeySelector, result
 JoinEnumerable.prototype = Object.create(Enumerable.prototype);
 
 /** Returns an Enumerator that iterates through the current collection.
- * @this IntersectEnumerable
+ * @this JoinEnumerable
  * @override
  * @returns {Enumerator} An Enumerator that can be used to iterate through the current collection.
  */

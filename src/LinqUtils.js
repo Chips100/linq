@@ -102,5 +102,13 @@ var LinqUtils = {
    */
   isFunction: function (input) {
     return typeof (input) === 'function';
+  },
+  
+  /** Determines if the specified value is a Lookup.
+   * @param {*} [input] - Value that could be a Lookup.
+   * @returns {Boolean} True, if the specified value is a Lookup; otherwise false.
+   */
+  isLookup: function(input) {
+    return input instanceof Lookup;
   }
 };
