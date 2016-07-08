@@ -95,5 +95,11 @@ var LinqAssert = {
    */
   throwMultipleMatchingItemsError: function() {
     throw new Error('Multiple items in the sequence matched the predicate.');
-  }
+  },
+
+  /** Throws an error indicating a sequence being empty when it should not be.
+   */
+  throwSequenceEmptyError: function() {
+    throw new Error('Sequence contains no elements');
+  },
 };
