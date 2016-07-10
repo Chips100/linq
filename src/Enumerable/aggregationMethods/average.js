@@ -15,7 +15,7 @@ Enumerable.prototype.average = function (selector) {
         sum = 0, count = 0;
 
     if (!enumerator.moveNext()) {
-        return LinqAssert.throwSequenceEmptyError();
+        LinqAssert.throwSequenceEmptyError();
     }
     else {
         do {

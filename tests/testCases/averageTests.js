@@ -12,7 +12,7 @@ test('Average should calculate the average of the items in a sequence', function
 
 	var avg = source.average();
 
-	strictEqual(avg, 8, 'Averages calculates the average of the items in a sequence.');
+	strictEqual(avg, 8, 'Average calculates the average of the items in a sequence.');
 });
 
 test('Average should project the items of the sequence when a selector is provided.', function() {
@@ -20,5 +20,5 @@ test('Average should project the items of the sequence when a selector is provid
 
 	var avg = source.average(function(x) { return 2 * x });
 
-	strictEqual(avg, 16, 'Averages calculates the average of the items in a sequence.');
+	strictEqual(avg, 16, 'Averages calculates the average of the projected items in a sequence.');
 });
