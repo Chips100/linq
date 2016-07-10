@@ -48,6 +48,10 @@ List.prototype.addRange = function(items) {
   }
 };
 
+List.prototype.asEnumerable = function() {
+    return this.select(function(x) { return x; });
+};
+
 /** Removes all elements from the List.
  * @this List
  */
@@ -121,6 +125,12 @@ List.prototype.count = function(predicate) {
  * @returns {*} The element at the specified position in the source sequence.
  */
 List.prototype.elementAt = function(index) {
+    LinqAssert.requiredPositiveNumber(index, 'index');
+    
+    if (index >= this._array.length) {
+        LinqAssert.throwArgumentOutOfRangeError('index');
+    }
+
     return this._array[index];
 }
 
