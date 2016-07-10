@@ -1,4 +1,4 @@
-module('Enumerable#elementAt');
+module('List#elementAt');
 test('ElementAt should throw an exception if provided a negative number.', function () {
 	var source = new List([1, 2, 3]);
 

@@ -132,7 +132,21 @@ List.prototype.elementAt = function(index) {
     }
 
     return this._array[index];
-}
+};
+
+/** Returns the element at a specified index in a sequence, or null if the specified index is out of range.
+ * @this List
+ * @override 
+ * @param {Number} index - The zero-based index of the element to retrieve.
+ * @returns {*} The element at the specified position in the source sequence, or null if the index is out of range.
+ */
+List.prototype.elementAtOrDefault = function(index) {
+    if (index < 0 || index >= this._array.length) {
+        return null;
+    }
+
+    return this._array[index];
+};
 
 /** Returns an enumerator that iterates through this list.
  * @this List
